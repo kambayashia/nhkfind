@@ -359,7 +359,7 @@ class NhkApi {
     }
   }
   
-  private func makeUrl(method:Method) -> String {
+  func makeUrl(method:Method) -> String {
     var result : String = ""
     
     let baseUrl = "\(self.baseUrl)/v\(self.version)/pg"
@@ -383,8 +383,4 @@ class NhkApi {
     return (today, tommorow)
   }
 
-  func request(method:Method) -> Void {
-    let url = makeUrl(method)
-    println(url)
-  }
 }

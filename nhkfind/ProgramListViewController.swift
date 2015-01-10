@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class ProgramListViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
   @IBOutlet weak var pickerView: UIPickerView!
@@ -42,16 +43,25 @@ class ProgramListViewController: UIViewController, UIPickerViewDelegate, UIPicke
     // Dispose of any resources that can be recreated.
   }
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-  }
-  
   @IBAction func request(sender: UIButton) {
     
     let area = selectedArea
     let service = selectedService
     let date = selectedDate
     let method = NhkApi.Method.List(area: area, service: service, date: date)
-    nhkApi?.request(method)
+    let url = nhkApi!.makeUrl(method)
+    
+    println(url)
+    Alamofire.request(.GET, url).responseJSON(
+      {(_, _, json, error) in
+        if error == nil {
+          println(json)
+        }
+        else {
+          println(error)
+        }
+      }
+    )
   }
   
   func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
