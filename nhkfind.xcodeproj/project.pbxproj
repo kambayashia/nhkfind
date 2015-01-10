@@ -29,6 +29,27 @@
 			remoteGlobalIDString = 1C009BC11A5ACCED00ADC420;
 			remoteInfo = nhkfind;
 		};
+		1C009BFE1A60ABAB00ADC420 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3319A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		1C009C001A60ABAB00ADC420 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
+			remoteInfo = AlamofireTests;
+		};
+		1C009C021A60AC2E00ADC420 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +69,7 @@
 		1C009BF31A5D8C6400ADC420 /* NowOnAirViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowOnAirViewController.swift; sourceTree = "<group>"; };
 		1C009BF51A5D91EB00ADC420 /* NhkApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NhkApi.swift; sourceTree = "<group>"; };
 		1C009BF71A60164400ADC420 /* NhkApiKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NhkApiKey.txt; sourceTree = "<group>"; };
+		1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +93,7 @@
 		1C009BB91A5ACCED00ADC420 = {
 			isa = PBXGroup;
 			children = (
+				1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */,
 				1C009BF71A60164400ADC420 /* NhkApiKey.txt */,
 				1C009BC41A5ACCED00ADC420 /* nhkfind */,
 				1C009BDA1A5ACCED00ADC420 /* nhkfindTests */,
@@ -130,6 +153,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1C009BFA1A60ABAB00ADC420 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1C009BFF1A60ABAB00ADC420 /* Alamofire.framework */,
+				1C009C011A60ABAB00ADC420 /* AlamofireTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,6 +176,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1C009C031A60AC2E00ADC420 /* PBXTargetDependency */,
 			);
 			name = nhkfind;
 			productName = nhkfind;
@@ -197,6 +230,12 @@
 			mainGroup = 1C009BB91A5ACCED00ADC420;
 			productRefGroup = 1C009BC31A5ACCED00ADC420 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1C009BFA1A60ABAB00ADC420 /* Products */;
+					ProjectRef = 1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1C009BC11A5ACCED00ADC420 /* nhkfind */,
@@ -204,6 +243,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1C009BFF1A60ABAB00ADC420 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = 1C009BFE1A60ABAB00ADC420 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1C009C011A60ABAB00ADC420 /* AlamofireTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AlamofireTests.xctest;
+			remoteRef = 1C009C001A60ABAB00ADC420 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1C009BC01A5ACCED00ADC420 /* Resources */ = {
@@ -256,6 +312,11 @@
 			isa = PBXTargetDependency;
 			target = 1C009BC11A5ACCED00ADC420 /* nhkfind */;
 			targetProxy = 1C009BD81A5ACCED00ADC420 /* PBXContainerItemProxy */;
+		};
+		1C009C031A60AC2E00ADC420 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = 1C009C021A60AC2E00ADC420 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -431,6 +492,7 @@
 				1C009BE31A5ACCED00ADC420 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1C009BE41A5ACCED00ADC420 /* Build configuration list for PBXNativeTarget "nhkfindTests" */ = {
 			isa = XCConfigurationList;
@@ -439,6 +501,7 @@
 				1C009BE61A5ACCED00ADC420 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
