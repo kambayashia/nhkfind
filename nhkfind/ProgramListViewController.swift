@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
-import Alamofire
 
 class ProgramListViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
   @IBOutlet weak var pickerView: UIPickerView!
   @IBOutlet weak var dateSegmentedControl: UISegmentedControl!
+  @IBOutlet weak var searchButton: UIButton!
+  
   var selectedArea:NhkApi.Area = NhkApi.Area.defaultValue()
   var selectedService:NhkApi.Service = NhkApi.Service.defaultValue()
   var selectedDate:String = ""
@@ -44,22 +45,18 @@ class ProgramListViewController: UIViewController, UIPickerViewDelegate, UIPicke
   }
   
   @IBAction func request(sender: UIButton) {
+    searchButton.enabled = false
     
     let area = selectedArea
     let service = selectedService
     let date = selectedDate
     let method = NhkApi.Method.List(area: area, service: service, date: date)
-    let url = nhkApi!.makeUrl(method)
-    
-    println(url)
-    Alamofire.request(.GET, url).responseJSON(
-      {(_, _, json, error) in
-        if error == nil {
-          println(json)
-        }
-        else {
-          println(error)
-        }
+    nhkApi?.request(method, handler: {
+      (jsonDictionary:JsonDictionary) -> Void in
+        weak var wnhkApi:NhkApi? = self.nhkApi
+        self.searchButton.enabled = true
+        let url = wnhkApi!.makeUrl(method)
+        println(url)
       }
     )
   }
@@ -87,6 +84,21 @@ class ProgramListViewController: UIViewController, UIPickerViewDelegate, UIPicke
       return displayService.text
     }
   }
+  
+  func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+    var text = ""
+    if component == 0 {
+      selectedArea = NhkApi.Area.all[row]
+      text = selectedArea.text
+    }
+    else {
+      selectedService = NhkApi.Service.all[row]
+      text = selectedService.text
+    }
+    
+    return NSAttributedString(string: text, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+  }
+  
   func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     if component == 0 {
       selectedArea = NhkApi.Area.all[row]
