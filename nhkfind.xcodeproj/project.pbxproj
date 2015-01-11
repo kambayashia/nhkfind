@@ -98,6 +98,7 @@
 				1C009BC41A5ACCED00ADC420 /* nhkfind */,
 				1C009BDA1A5ACCED00ADC420 /* nhkfindTests */,
 				1C009BC31A5ACCED00ADC420 /* Products */,
+				F6697201A94B4C563773043F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -160,6 +161,13 @@
 				1C009C011A60ABAB00ADC420 /* AlamofireTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		F6697201A94B4C563773043F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,6 +434,7 @@
 				INFOPLIST_FILE = nhkfind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -436,6 +445,7 @@
 				INFOPLIST_FILE = nhkfind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

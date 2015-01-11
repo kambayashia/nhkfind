@@ -7,6 +7,9 @@
 //
 
 import Foundation
+import Alamofire
+
+typealias JsonDictionary = Dictionary<String, AnyObject>
 
 class NhkApi {
   let baseUrl = "http://api.nhk.or.jp"
@@ -100,46 +103,46 @@ class NhkApi {
   
   internal enum Service : String{
     static func defaultValue() -> Service {
-      return ＮＨＫ総合１
+      return NHK総合1
     }
-    case ＮＨＫ総合１ = "g1"
-    case ＮＨＫ総合２ = "g2"
-    case ＮＨＫＥテレ１ = "e1"
-    case ＮＨＫＥテレ２ = "e2"
-    case ＮＨＫＥテレ３ = "e3"
-    case ＮＨＫワンセグ２ = "e4"
-    case ＮＨＫＢＳ１ = "s1"
-    case ＮＨＫＢＳ１（１０２ｃｈ） = "s2"
-    case ＮＨＫＢＳプレミアム = "s3"
-    case ＮＨＫＢＳプレミアム（１０４ｃｈ） = "s4"
-    case ＮＨＫラジオ第1 = "r1"
-    case ＮＨＫラジオ第2 = "r2"
-    case ＮＨＫＦＭ = "r3"
-    case ＮＨＫネットラジオ第1 = "n1"
-    case ＮＨＫネットラジオ第2 = "n2"
-    case ＮＨＫネットラジオＦＭ = "n3"
+    case NHK総合1 = "g1"
+    case NHK総合2 = "g2"
+    case NHKEテレ1 = "e1"
+    case NHKEテレ2 = "e2"
+    case NHKEテレ3 = "e3"
+    case NHKワンセグ2 = "e4"
+    case NHKBS1 = "s1"
+    case NHKBS1（102ch） = "s2"
+    case NHKBSプレミアム = "s3"
+    case NHKBSプレミアム（104ch） = "s4"
+    case NHKラジオ第1 = "r1"
+    case NHKラジオ第2 = "r2"
+    case NHKFM = "r3"
+    case NHKネットラジオ第1 = "n1"
+    case NHKネットラジオ第2 = "n2"
+    case NHKネットラジオFM = "n3"
     case テレビ全て = "tv"
     case ラジオ全て = "radio"
     case ネットラジオ全て = "netradio"
     
     static var all:[Service] {
       return [
-        .ＮＨＫ総合１,
-        .ＮＨＫ総合２,
-        .ＮＨＫＥテレ１,
-        .ＮＨＫＥテレ２,
-        .ＮＨＫＥテレ３,
-        .ＮＨＫワンセグ２,
-        .ＮＨＫＢＳ１,
-        .ＮＨＫＢＳ１（１０２ｃｈ）,
-        .ＮＨＫＢＳプレミアム,
-        .ＮＨＫＢＳプレミアム（１０４ｃｈ）,
-        .ＮＨＫラジオ第1,
-        .ＮＨＫラジオ第2,
-        .ＮＨＫＦＭ,
-        .ＮＨＫネットラジオ第1,
-        .ＮＨＫネットラジオ第2,
-        .ＮＨＫネットラジオＦＭ,
+        .NHK総合1,
+        .NHK総合2,
+        .NHKEテレ1,
+        .NHKEテレ2,
+        .NHKEテレ3,
+        .NHKワンセグ2,
+        .NHKBS1,
+        .NHKBS1（102ch）,
+        .NHKBSプレミアム,
+        .NHKBSプレミアム（104ch）,
+        .NHKラジオ第1,
+        .NHKラジオ第2,
+        .NHKFM,
+        .NHKネットラジオ第1,
+        .NHKネットラジオ第2,
+        .NHKネットラジオFM,
         .テレビ全て,
         .ラジオ全て,
         .ネットラジオ全て,
@@ -148,22 +151,22 @@ class NhkApi {
     
     var text:String {
       switch self {
-      case .ＮＨＫ総合１: return "ＮＨＫ総合１"
-      case .ＮＨＫ総合２: return "ＮＨＫ総合２"
-      case .ＮＨＫＥテレ１: return "ＮＨＫＥテレ１"
-      case .ＮＨＫＥテレ２: return "ＮＨＫＥテレ２"
-      case .ＮＨＫＥテレ３: return "ＮＨＫＥテレ３"
-      case .ＮＨＫワンセグ２: return "ＮＨＫワンセグ２"
-      case .ＮＨＫＢＳ１: return "ＮＨＫＢＳ１"
-      case .ＮＨＫＢＳ１（１０２ｃｈ）: return "ＮＨＫＢＳ１（１０２ｃｈ）"
-      case .ＮＨＫＢＳプレミアム: return "ＮＨＫＢＳプレミアム"
-      case .ＮＨＫＢＳプレミアム（１０４ｃｈ）: return "ＮＨＫＢＳプレミアム（１０４ｃｈ）"
-      case .ＮＨＫラジオ第1: return "ＮＨＫラジオ第1"
-      case .ＮＨＫラジオ第2: return "ＮＨＫラジオ第2"
-      case .ＮＨＫＦＭ: return "ＮＨＫＦＭ"
-      case .ＮＨＫネットラジオ第1: return "ＮＨＫネットラジオ第1"
-      case .ＮＨＫネットラジオ第2: return "ＮＨＫネットラジオ第2"
-      case .ＮＨＫネットラジオＦＭ: return "ＮＨＫネットラジオＦＭ"
+      case .NHK総合1: return "NHK総合1"
+      case .NHK総合2: return "NHK総合2"
+      case .NHKEテレ1: return "NHK Eテレ1"
+      case .NHKEテレ2: return "NHK Eテレ2"
+      case .NHKEテレ3: return "NHK Eテレ3"
+      case .NHKワンセグ2: return "NHKワンセグ2"
+      case .NHKBS1: return "NHK BS1"
+      case .NHKBS1（102ch）: return "NHK BS1（102ch）"
+      case .NHKBSプレミアム: return "NHK BSプレミアム"
+      case .NHKBSプレミアム（104ch）: return "NHK BSプレミアム（104ch）"
+      case .NHKラジオ第1: return "NHKラジオ第1"
+      case .NHKラジオ第2: return "NHKラジオ第2"
+      case .NHKFM: return "NHK FM"
+      case .NHKネットラジオ第1: return "NHKネットラジオ第1"
+      case .NHKネットラジオ第2: return "NHKネットラジオ第2"
+      case .NHKネットラジオFM: return "NHKネットラジオFM"
       case .テレビ全て: return "テレビ全て"
       case .ラジオ全て: return "ラジオ全て"
       case .ネットラジオ全て: return "ネットラジオ全て"
@@ -366,6 +369,29 @@ class NhkApi {
     result = method.url(baseUrl) + "?key=\(self.key)";
     
     return result
+  }
+  
+  func request(method:Method, handler:(json:JsonDictionary) -> Void) -> String {
+    let url = self.makeUrl(method)
+    Alamofire.request(.GET, url).responseJSON(
+      {(_, _, json, error) in
+        var jsonDictionary:JsonDictionary = JsonDictionary()
+        
+        if let jsonArray = json as? [JsonDictionary] {
+          for var i = 0; i < jsonArray.count; i++ {
+            let dict = jsonArray[i]
+            jsonDictionary[String(i)] = dict
+          }
+        }
+        else if let jsonArray = json as? JsonDictionary {
+          jsonDictionary = jsonArray
+        }
+
+        handler(json: jsonDictionary)
+      }
+    )
+    
+    return url
   }
   
   init(apiKey:String) {

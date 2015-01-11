@@ -24,10 +24,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     menuTableView.dataSource = self
     menuTableView.delegate = self
-    
-    menuTableView.scrollEnabled = false
   }
 
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    menuTableView.tableFooterView = UIView(frame: CGRectZero)
+    //menuTableView.contentInset = UIEdgeInsets(top: -1, left: 0, bottom: 0, right: 0)
+  }
+  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -41,6 +46,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: nil)
     
     cell.textLabel?.text = texts[indexPath.row].name
+    cell.textLabel?.textColor = UIColor.whiteColor()
+    cell.backgroundColor = UIColor.grayColor()
 
     return cell
   }
@@ -57,10 +64,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     performSegueWithIdentifier(segueName, sender: nil)
-  }
-  
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    
   }
 }
 
