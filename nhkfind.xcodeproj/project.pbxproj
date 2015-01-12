@@ -21,6 +21,9 @@
 		1C009BF81A60164400ADC420 /* NhkApiKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1C009BF71A60164400ADC420 /* NhkApiKey.txt */; };
 		1C874FE51A635D0F00AA0B3E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C009BC61A5ACCED00ADC420 /* Info.plist */; };
 		1C874FE61A635D8700AA0B3E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C874FE81A635D8700AA0B3E /* InfoPlist.strings */; };
+		1C874FEA1A635F6F00AA0B3E /* AreaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FE91A635F6F00AA0B3E /* AreaTableViewController.swift */; };
+		1C874FEC1A63A7EB00AA0B3E /* GenreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FEB1A63A7EB00AA0B3E /* GenreTableViewController.swift */; };
+		1C874FEE1A63B17000AA0B3E /* ServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FED1A63B17000AA0B3E /* ServiceTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		1C874FE11A635A6500AA0B3E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		1C874FE21A635A6500AA0B3E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1C874FE71A635D8700AA0B3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1C874FE91A635F6F00AA0B3E /* AreaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaTableViewController.swift; sourceTree = "<group>"; };
+		1C874FEB1A63A7EB00AA0B3E /* GenreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreTableViewController.swift; sourceTree = "<group>"; };
+		1C874FED1A63B17000AA0B3E /* ServiceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,9 @@
 				1C009BEF1A5D878000ADC420 /* GenreViewController.swift */,
 				1C009BF11A5D8C5100ADC420 /* ProgramInfoViewController.swift */,
 				1C009BF31A5D8C6400ADC420 /* NowOnAirViewController.swift */,
+				1C874FE91A635F6F00AA0B3E /* AreaTableViewController.swift */,
+				1C874FEB1A63A7EB00AA0B3E /* GenreTableViewController.swift */,
+				1C874FED1A63B17000AA0B3E /* ServiceTableViewController.swift */,
 			);
 			path = nhkfind;
 			sourceTree = "<group>";
@@ -304,11 +313,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C874FEE1A63B17000AA0B3E /* ServiceTableViewController.swift in Sources */,
+				1C874FEA1A635F6F00AA0B3E /* AreaTableViewController.swift in Sources */,
 				1C009BF01A5D878000ADC420 /* GenreViewController.swift in Sources */,
 				1C009BF61A5D91EB00ADC420 /* NhkApi.swift in Sources */,
 				1C009BF41A5D8C6400ADC420 /* NowOnAirViewController.swift in Sources */,
 				1C009BEE1A5D800500ADC420 /* ProgramListViewController.swift in Sources */,
 				1C009BCA1A5ACCED00ADC420 /* ViewController.swift in Sources */,
+				1C874FEC1A63A7EB00AA0B3E /* GenreTableViewController.swift in Sources */,
 				1C009BC81A5ACCED00ADC420 /* AppDelegate.swift in Sources */,
 				1C009BF21A5D8C5100ADC420 /* ProgramInfoViewController.swift in Sources */,
 			);
