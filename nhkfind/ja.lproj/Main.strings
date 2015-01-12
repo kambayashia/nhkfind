@@ -1,0 +1,36 @@
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "3ZB-M8-op6"; */
+"3ZB-M8-op6.text" = "Label";
+
+/* Class = "IBUILabel"; text = "地域"; ObjectID = "6DV-jz-vJI"; */
+"6DV-jz-vJI.text" = "地域";
+
+/* Class = "IBUILabel"; text = "地域"; ObjectID = "PRH-bf-6eY"; */
+"PRH-bf-6eY.text" = "地域";
+
+/* Class = "IBUIButton"; accessibilityLabel = "rfff"; ObjectID = "Tqs-aD-wVv"; */
+"Tqs-aD-wVv.accessibilityLabel" = "rfff";
+
+/* Class = "IBUIButton"; normalTitle = "検索"; ObjectID = "Tqs-aD-wVv"; */
+"Tqs-aD-wVv.normalTitle" = "検索";
+
+/* Class = "IBUILabel"; text = "長い文章あああ"; ObjectID = "aJo-fH-zCN"; */
+"aJo-fH-zCN.text" = "長い文章あああ";
+
+/* Class = "IBUILabel"; text = "サービス"; ObjectID = "b28-do-61e"; */
+"b28-do-61e.text" = "サービス";
+
+/* Class = "IBUILabel"; text = "ジャンル"; ObjectID = "ezZ-pe-yjL"; */
+"ezZ-pe-yjL.text" = "ジャンル";
+
+/* Class = "IBUILabel"; text = "サービス"; ObjectID = "kw2-Em-RN9"; */
+"kw2-Em-RN9.text" = "サービス";
+
+/* Class = "IBUISegmentedControl"; pyh-qq-GYt.segmentTitles[0] = "First"; ObjectID = "pyh-qq-GYt"; */
+"pyh-qq-GYt.segmentTitles[0]" = "First";
+
+/* Class = "IBUISegmentedControl"; pyh-qq-GYt.segmentTitles[1] = "Second"; ObjectID = "pyh-qq-GYt"; */
+"pyh-qq-GYt.segmentTitles[1]" = "Second";
+
+/* Class = "IBUILabel"; text = "Label"; ObjectID = "vos-Pk-dgn"; */
+"vos-Pk-dgn.text" = "Label";
