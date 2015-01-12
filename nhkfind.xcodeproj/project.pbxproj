@@ -19,6 +19,8 @@
 		1C009BF41A5D8C6400ADC420 /* NowOnAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C009BF31A5D8C6400ADC420 /* NowOnAirViewController.swift */; };
 		1C009BF61A5D91EB00ADC420 /* NhkApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C009BF51A5D91EB00ADC420 /* NhkApi.swift */; };
 		1C009BF81A60164400ADC420 /* NhkApiKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1C009BF71A60164400ADC420 /* NhkApiKey.txt */; };
+		1C874FE51A635D0F00AA0B3E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C009BC61A5ACCED00ADC420 /* Info.plist */; };
+		1C874FE61A635D8700AA0B3E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C874FE81A635D8700AA0B3E /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,9 @@
 		1C009BF51A5D91EB00ADC420 /* NhkApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NhkApi.swift; sourceTree = "<group>"; };
 		1C009BF71A60164400ADC420 /* NhkApiKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NhkApiKey.txt; sourceTree = "<group>"; };
 		1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		1C874FE11A635A6500AA0B3E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		1C874FE21A635A6500AA0B3E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1C874FE71A635D8700AA0B3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				1C009BC61A5ACCED00ADC420 /* Info.plist */,
+				1C874FE81A635D8700AA0B3E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 				TargetAttributes = {
 					1C009BC11A5ACCED00ADC420 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 4ZM865CW3U;
 					};
 					1C009BD61A5ACCED00ADC420 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -276,8 +283,10 @@
 			files = (
 				1C009BCD1A5ACCED00ADC420 /* Main.storyboard in Resources */,
 				1C009BD21A5ACCED00ADC420 /* LaunchScreen.xib in Resources */,
+				1C874FE51A635D0F00AA0B3E /* Info.plist in Resources */,
 				1C009BCF1A5ACCED00ADC420 /* Images.xcassets in Resources */,
 				1C009BF81A60164400ADC420 /* NhkApiKey.txt in Resources */,
+				1C874FE61A635D8700AA0B3E /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +342,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1C009BCC1A5ACCED00ADC420 /* Base */,
+				1C874FE11A635A6500AA0B3E /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -341,8 +351,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				1C009BD11A5ACCED00ADC420 /* Base */,
+				1C874FE21A635A6500AA0B3E /* ja */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		1C874FE81A635D8700AA0B3E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1C874FE71A635D8700AA0B3E /* Base */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -431,10 +450,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: atsushi kambayashi (FTZK9ADKN9)";
 				INFOPLIST_FILE = nhkfind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -442,10 +462,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: atsushi kambayashi (FTZK9ADKN9)";
 				INFOPLIST_FILE = nhkfind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
