@@ -24,6 +24,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     menuTableView.dataSource = self
     menuTableView.delegate = self
+    
+    self.title = "メニュー"
   }
 
   override func viewWillAppear(animated: Bool) {
@@ -48,13 +50,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     cell.textLabel?.text = texts[indexPath.row].name
     cell.textLabel?.textColor = UIColor.whiteColor()
     cell.backgroundColor = UIColor.grayColor()
+    cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
 
     return cell
   }
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let method = texts[indexPath.row]
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
     
+    let method = texts[indexPath.row]
     var segueName : String = ""
     switch method {
     case NhkApi.Method.List: segueName = "ShowProgramList"

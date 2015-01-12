@@ -9,13 +9,14 @@
 import Foundation
 import UIKit
 
-class ProgramListViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-  @IBOutlet weak var pickerView: UIPickerView!
+class ProgramListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  @IBOutlet weak var areaTableView: UITableView!
+  @IBOutlet weak var serviceTableView: UITableView!
   @IBOutlet weak var dateSegmentedControl: UISegmentedControl!
   @IBOutlet weak var searchButton: UIButton!
   
-  var selectedArea:NhkApi.Area = NhkApi.Area.defaultValue()
-  var selectedService:NhkApi.Service = NhkApi.Service.defaultValue()
+  var area = NhkApi.Area.defaultValue()
+  var service = NhkApi.Service.defaultValue()
   var selectedDate:String = ""
   var nhkApi:NhkApi? = nil
   
@@ -28,27 +29,47 @@ class ProgramListViewController: UIViewController, UIPickerViewDelegate, UIPicke
       nhkApi = NhkApi(apiKey: String(keyData!))
     }
     
-    self.title = NhkApi.Method.List(area: NhkApi.Area.defaultValue(), service: NhkApi.Service.defaultValue(), date: "").name
-    
-    pickerView.delegate = self
-    pickerView.dataSource = self
-    
     let availableDate = NhkApi.availableDate
     selectedDate = availableDate.0
     dateSegmentedControl.setTitle(availableDate.0, forSegmentAtIndex: 0)
     dateSegmentedControl.setTitle(availableDate.1, forSegmentAtIndex: 1)
+    
+    self.title = NhkApi.Method.List(area: NhkApi.Area.defaultValue(), service: NhkApi.Service.defaultValue(), date: "").name
+
+    areaTableView.delegate = self
+    areaTableView.dataSource = self
+    serviceTableView.delegate = self
+    serviceTableView.dataSource = self
   }
-  
+
+  override func viewDidAppear(animated: Bool) {
+    super.viewDidAppear(animated)
+    
+    areaTableView.reloadData()
+    serviceTableView.reloadData()
+  }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
   
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let controller = segue.destinationViewController as? AreaTableViewContorller {
+      controller.current = area
+      controller.previous = self
+    }
+    else if let controller = segue.destinationViewController as? GenreTableViewController {
+      controller.previous = self
+    }
+    else if let controller = segue.destinationViewController as? ServiceTableViewController {
+      controller.current = service
+      controller.previous = self
+    }
+  }
+  
   @IBAction func request(sender: UIButton) {
     searchButton.enabled = false
-    
-    let area = selectedArea
-    let service = selectedService
+
     let date = selectedDate
     let method = NhkApi.Method.List(area: area, service: service, date: date)
     nhkApi?.request(method, handler: {
@@ -61,50 +82,35 @@ class ProgramListViewController: UIViewController, UIPickerViewDelegate, UIPicke
     )
   }
   
-  func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-    return 2
-  }
-  
-  func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    if component == 0 {
-      return NhkApi.Area.all.count
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    var cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+    cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    if tableView == areaTableView {
+      cell.textLabel?.text = area.text
     }
     else {
-      return NhkApi.Service.all.count
-    }
-  }
-  
-  func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-    if component == 0 {
-      let displayArea = NhkApi.Area.all[row]
-      return displayArea.text
-    }
-    else{
-      let displayService = NhkApi.Service.all[row]
-      return displayService.text
-    }
-  }
-  
-  func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-    var text = ""
-    if component == 0 {
-      selectedArea = NhkApi.Area.all[row]
-      text = selectedArea.text
-    }
-    else {
-      selectedService = NhkApi.Service.all[row]
-      text = selectedService.text
+      cell.textLabel?.text = service.text
     }
     
-    return NSAttributedString(string: text, attributes: [NSForegroundColorAttributeName:UIColor.whiteColor()])
+    return cell
   }
   
-  func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    if component == 0 {
-      selectedArea = NhkApi.Area.all[row]
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
+  }
+  
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: false)
+    
+    var segueName:String? = nil
+    switch tableView {
+    case areaTableView: segueName = "ShowAreaTable"
+    case serviceTableView: segueName = "ShowServiceTable"
+    default: break
     }
-    else {
-      selectedService = NhkApi.Service.all[row]
+    
+    if segueName != nil {
+      performSegueWithIdentifier(segueName, sender: nil)
     }
   }
   
