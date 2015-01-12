@@ -41,6 +41,20 @@ class NhkApi {
       ]
     }
 
+    static func index(value:Area) -> Int {
+      var result:Int = 0
+      let allCount = all.count
+      
+      for var i = 0; i < allCount; i++ {
+        let item = all[i]
+        if item == value {
+          result = i
+          break
+        }
+      }
+      return result
+    }
+
     var text:String {
       switch self {
         case .札幌: return "札幌"
@@ -149,6 +163,20 @@ class NhkApi {
       ]
     }
     
+    static func index(value:Service) -> Int {
+      var result:Int = 0
+      let allCount = all.count
+      
+      for var i = 0; i < allCount; i++ {
+        let item = all[i]
+        if item == value {
+          result = i
+          break
+        }
+      }
+      return result
+    }
+    
     var text:String {
       switch self {
       case .NHK総合1: return "NHK総合1"
@@ -192,7 +220,7 @@ class NhkApi {
     case ローカル・地域 = 0x0009
     case 交通 = 0x000A
     case ニュースその他 = 0x000F
-    static func news() -> [GenreType] {
+    static var news:[GenreType] {
       return [定時・総合, 天気, 特集・ドキュメント, 政治・国会, 経済・市況, 海外・国際, 解説, 討論・会談, 報道特番, ローカル・地域, 交通, ニュースその他]
     }
     
@@ -208,7 +236,7 @@ class NhkApi {
     case マリン・ウィンタースポーツ = 0x0109
     case 競馬・公営競技 = 0x010A
     case スポーツその他 = 0x010F
-    static func sport() -> [GenreType] {
+    static var sport:[GenreType] {
       return [スポーツニュース, 野球, サッカー, ゴルフ, その他の球技, 相撲・格闘技, オリンピック・国際大会, マラソン・陸上・水泳, モータースポーツ, マリン・ウィンタースポーツ, 競馬・公営競技, スポーツその他,]
     }
     
@@ -221,7 +249,7 @@ class NhkApi {
     case イベント = 0x0206
     case 番組紹介・お知らせ = 0x0207
     case 情報／ワイドショーその他 = 0x020F
-    static func entertainment() -> [GenreType] {
+    static var entertainment:[GenreType] {
       return [芸能・ワイドショー, ファッション, 暮らし・住まい, 健康・医療, ショッピング・通販, グルメ・料理, イベント, 番組紹介・お知らせ, 情報／ワイドショーその他,]
     }
     
@@ -229,7 +257,7 @@ class NhkApi {
     case 海外ドラマ = 0x0301
     case 時代劇 = 0x0303
     case ドラマその他 = 0x030F
-    static func drama() -> [GenreType] {
+    static var drama:[GenreType] {
       return [国内ドラマ, 海外ドラマ, 時代劇, ドラマその他,]
     }
     
@@ -245,7 +273,7 @@ class NhkApi {
     case 童謡・キッズ = 0x0409
     case 民族音楽・ワールドミュージック = 0x040A
     case 音楽その他 = 0x040F
-    static func music() -> [GenreType] {
+    static var music:[GenreType] {
       return [国内ロック・ポップス, 海外ロック・ポップス, クラシック・オペラ, ジャズ・フュージョン, 歌謡曲・演歌, ライブ・コンサート, ランキング・リクエスト, カラオケ・のど自慢, 民謡・邦楽, 童謡・キッズ, 民族音楽・ワールドミュージック, 音楽その他,]
     }
     
@@ -257,7 +285,7 @@ class NhkApi {
     case 旅バラエティ = 0x0505
     case 料理バラエティ = 0x0506
     case バラエティその他 = 0x050F
-    static func variety() -> [GenreType] {
+    static var variety:[GenreType] {
       return [クイズ, ゲーム, トークバラエティ, お笑い・コメディ, 音楽バラエティ, 旅バラエティ, 料理バラエティ, バラエティその他,]
     }
     
@@ -265,7 +293,7 @@ class NhkApi {
     case 邦画 = 0x0601
     case アニメ映画 = 0x0602
     case 映画その他 = 0x060F
-    static func movie() -> [GenreType] {
+    static var movie:[GenreType] {
       return [洋画, 邦画, アニメ映画, 映画その他,]
     }
     
@@ -273,7 +301,7 @@ class NhkApi {
     case 海外アニメ = 0x0701
     case 特撮 = 0x0702
     case アニメその他 = 0x070F
-    static func anime() -> [GenreType] {
+    static var anime:[GenreType] {
       return [国内アニメ, 海外アニメ, 特撮, アニメその他,]
     }
     
@@ -287,7 +315,7 @@ class NhkApi {
     case ドキュメンタリー全般 = 0x0807
     case インタビュー・討論 = 0x0808
     case ドキュメンタリーその他 = 0x080F
-    static func documentary() -> [GenreType] {
+    static var documentary:[GenreType] {
       return [社会・時事, 歴史・紀行, 自然・動物・環境, 宇宙・科学・医学, カルチャー・伝統文化, 文学・文芸, スポーツドキュメンタリー, ドキュメンタリー全般, インタビュー・討論, ドキュメンタリーその他,]
     }
     
@@ -297,7 +325,7 @@ class NhkApi {
     case 落語・演芸 = 0x0903
     case 歌舞伎・古典 = 0x0904
     case 劇場公演その他 = 0x090F
-    static func musical() -> [GenreType] {
+    static var musical:[GenreType] {
       return [現代劇・新劇, ミュージカル, ダンス・バレエ, 落語・演芸, 歌舞伎・古典, 劇場公演その他,]
     }
     
@@ -315,7 +343,7 @@ class NhkApi {
     case 生涯教育・資格 = 0x0A0B
     case 教育問題 = 0x0A0C
     case 趣味・教育その他 = 0x0A0F
-    static func hobby() -> [GenreType]{
+    static var hobby:[GenreType] {
       return [旅・釣り・アウトドア, 園芸・ペット・手芸, 音楽・美術・工芸, 囲碁・将棋, 麻雀・パチンコ, 車・オートバイ, コンピュータ・ＴＶゲーム, 会話・語学, 幼児・小学生, 中学生・高校生, 大学生・受験, 生涯教育・資格, 教育問題, 趣味・教育その他,]
     }
     
@@ -327,14 +355,45 @@ class NhkApi {
     case 文字（字幕） = 0x0B05
     case 音声解説 = 0x0B06
     case 福祉その他 = 0x0B0F
-    static func humanService() -> [GenreType]{
+    static var humanService:[GenreType]{
       return [高齢者, 障害者, 社会福祉, ボランティア, 手話, 文字（字幕）, 音声解説, 福祉その他,]
     }
     
+    static var all:[GenreType] {
+      var all:[GenreType] = []
+       all  = all + news
+       all  = all + sport
+       all  = all + entertainment
+       all  = all + drama
+       all  = all + music
+       all  = all + variety
+       all  = all + movie
+       all  = all + anime
+       all  = all + musical
+       all  = all + hobby
+       all  = all + humanService
+      
+      return all
+    }
+    static func index(value:GenreType) -> Int {
+      var result:Int = 0
+      let allCount = all.count
+      
+      for var i = 0; i < allCount; i++ {
+        let item = all[i]
+        if item == value {
+          result = i
+          break
+        }
+      }
+      return result
+    }
+
     var code:String {
       let code = NSString(format:"%04d", self.rawValue)
       return code
     }
+    
     var text:String {
       switch self {
       case 定時・総合: return "定時・総合"
@@ -464,7 +523,7 @@ class NhkApi {
     func url(baseUrl:String) -> String {
       switch self {
       case let .List(area, service, date): return "\(baseUrl)/list/\(area.rawValue)/\(service.rawValue)/\(date).json"
-      case let .Genre(area, service, genre, date): return "\(baseUrl)/genre/\(area.rawValue)/\(service.rawValue)/\(genre.rawValue)/\(date).json"
+      case let .Genre(area, service, genre, date): return "\(baseUrl)/genre/\(area.rawValue)/\(service.rawValue)/\(genre.code)/\(date).json"
       case let Info(area, service, id): return "\(baseUrl)/info/\(area.rawValue)/\(service.rawValue)/\(id).json"
       case let NowOnAir(area, service): return "\(baseUrl)/now/\(area.rawValue)/\(service.rawValue).json"
       }
