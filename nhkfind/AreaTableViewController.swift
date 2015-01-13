@@ -13,8 +13,8 @@ class AreaTableViewContorller : UITableViewController {
   var current:NhkApi.Area? = nil
   var previous:UIViewController? = nil
   
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
     
     if current != nil {
       let index = NhkApi.Area.index(current!)

@@ -14,7 +14,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
   let texts = [
     NhkApi.Method.List(area: NhkApi.Area.defaultValue(), service: NhkApi.Service.defaultValue(), date: ""),
     NhkApi.Method.Genre(area: NhkApi.Area.defaultValue(), service: NhkApi.Service.defaultValue(), genre: NhkApi.GenreType.defaultValue(), date: ""),
-    NhkApi.Method.Info(area: NhkApi.Area.defaultValue(), service: NhkApi.Service.defaultValue(), id: 0),
     NhkApi.Method.NowOnAir(area: NhkApi.Area.defaultValue(), service: NhkApi.Service.defaultValue())
   ]
   
@@ -63,8 +62,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     switch method {
     case NhkApi.Method.List: segueName = "ShowProgramList"
     case NhkApi.Method.Genre: segueName = "ShowGenre"
-    case NhkApi.Method.Info: segueName = "ShowProgramInfo"
     case NhkApi.Method.NowOnAir: segueName = "ShowNowOnAir"
+    default: break
     }
     
     performSegueWithIdentifier(segueName, sender: nil)
