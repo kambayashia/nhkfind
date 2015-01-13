@@ -13,8 +13,8 @@ class ServiceTableViewController : UITableViewController {
   var previous:UIViewController? = nil
   var current:NhkApi.Service? = nil
 
-  override func viewDidAppear(animated: Bool) {
-    super.viewDidAppear(animated)
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
     
     if current != nil {
       let index = NhkApi.Service.index(current!)
