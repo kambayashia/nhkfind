@@ -58,6 +58,9 @@ class NowOnAirViewController : UIViewController, UITableViewDelegate, UITableVie
       controller.current = service
       controller.previous = self
     }
+    else if let controller = segue.destinationViewController as? SearchResultViewController {
+      
+    }
   }
   
   @IBAction func request(sender: UIButton) {
@@ -70,6 +73,7 @@ class NowOnAirViewController : UIViewController, UITableViewDelegate, UITableVie
       self.searchButton.enabled = true
       let url = wnhkApi!.makeUrl(method)
       println(url)
+      self.performSegueWithIdentifier("ShowSearchResult", sender: nil)
       }
     )
   }

@@ -65,6 +65,9 @@ class ProgramListViewController: UIViewController, UITableViewDelegate, UITableV
       controller.current = service
       controller.previous = self
     }
+    else if let controller = segue.destinationViewController as? SearchResultViewController {
+      
+    }
   }
   
   @IBAction func request(sender: UIButton) {
@@ -78,6 +81,7 @@ class ProgramListViewController: UIViewController, UITableViewDelegate, UITableV
         self.searchButton.enabled = true
         let url = wnhkApi!.makeUrl(method)
         println(url)
+        self.performSegueWithIdentifier("ShowSearchResult", sender: nil)
       }
     )
   }
