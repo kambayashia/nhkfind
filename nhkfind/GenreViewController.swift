@@ -71,6 +71,10 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
       controller.current = service
       controller.previous = self
     }
+    else if let controller = segue.destinationViewController as? SearchResultViewController {
+      
+    }
+
   }
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,6 +126,7 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
       self.searchButton.enabled = true
       let url = wnhkApi!.makeUrl(method)
       println(url)
+      self.performSegueWithIdentifier("ShowSearchResult", sender: nil)
       }
     )
   }

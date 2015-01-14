@@ -24,6 +24,7 @@
 		1C874FEA1A635F6F00AA0B3E /* AreaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FE91A635F6F00AA0B3E /* AreaTableViewController.swift */; };
 		1C874FEC1A63A7EB00AA0B3E /* GenreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FEB1A63A7EB00AA0B3E /* GenreTableViewController.swift */; };
 		1C874FEE1A63B17000AA0B3E /* ServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FED1A63B17000AA0B3E /* ServiceTableViewController.swift */; };
+		1C874FF01A641D6300AA0B3E /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FEF1A641D6300AA0B3E /* SearchResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		1C874FE91A635F6F00AA0B3E /* AreaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaTableViewController.swift; sourceTree = "<group>"; };
 		1C874FEB1A63A7EB00AA0B3E /* GenreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenreTableViewController.swift; sourceTree = "<group>"; };
 		1C874FED1A63B17000AA0B3E /* ServiceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceTableViewController.swift; sourceTree = "<group>"; };
+		1C874FEF1A641D6300AA0B3E /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 				1C874FE91A635F6F00AA0B3E /* AreaTableViewController.swift */,
 				1C874FEB1A63A7EB00AA0B3E /* GenreTableViewController.swift */,
 				1C874FED1A63B17000AA0B3E /* ServiceTableViewController.swift */,
+				1C874FEF1A641D6300AA0B3E /* SearchResultViewController.swift */,
 			);
 			path = nhkfind;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				1C009BEE1A5D800500ADC420 /* ProgramListViewController.swift in Sources */,
 				1C009BCA1A5ACCED00ADC420 /* ViewController.swift in Sources */,
 				1C874FEC1A63A7EB00AA0B3E /* GenreTableViewController.swift in Sources */,
+				1C874FF01A641D6300AA0B3E /* SearchResultViewController.swift in Sources */,
 				1C009BC81A5ACCED00ADC420 /* AppDelegate.swift in Sources */,
 				1C009BF21A5D8C5100ADC420 /* ProgramInfoViewController.swift in Sources */,
 			);
