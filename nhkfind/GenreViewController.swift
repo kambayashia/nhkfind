@@ -20,6 +20,7 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
   var service = NhkApi.Service.defaultValue()
   var genre = NhkApi.GenreType.defaultValue()
   var selectedDate:String = ""
+  var programList:[NhkProgram] = []
   var nhkApi:NhkApi? = nil
   
   override func viewDidLoad() {
@@ -72,7 +73,8 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
       controller.previous = self
     }
     else if let controller = segue.destinationViewController as? SearchResultViewController {
-      
+      controller.programList = self.programList
+      self.programList = []
     }
 
   }
@@ -120,13 +122,30 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
     
     let date = selectedDate
     let method = NhkApi.Method.Genre(area: area, service: service, genre: genre, date: selectedDate)
-    nhkApi?.request(method, handler: {
-      (jsonDictionary:JsonDictionary) -> Void in
-      weak var wnhkApi:NhkApi? = self.nhkApi
-      self.searchButton.enabled = true
-      let url = wnhkApi!.makeUrl(method)
-      println(url)
-      self.performSegueWithIdentifier("ShowSearchResult", sender: nil)
+    nhkApi?.request(method,
+      success: {
+        (jsonDictionary:JsonDictionary) -> Void in
+        weak var wnhkApi:NhkApi? = self.nhkApi
+      
+        self.searchButton.enabled = true
+
+        if let _jsonDictionary = jsonDictionary["list"] as? JsonDictionary {
+          var programList:[NhkProgram] = []
+          for (serviceName, programListJson) in _jsonDictionary  {
+            if let jsonProgramList = programListJson as? [JsonDictionary] {
+              for var i:Int = 0; i < jsonProgramList.count; i++ {
+                let program = wnhkApi!.makeProgramFromJson(jsonProgramList[i])
+                programList.append(program)
+              }
+            }
+          }
+          self.programList = programList
+          self.performSegueWithIdentifier("ShowSearchResult", sender: nil)
+        }
+      },
+      failure: {
+        () -> Void in
+        self.searchButton.enabled = true
       }
     )
   }

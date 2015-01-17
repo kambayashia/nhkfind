@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class ProgramInfoViewController : UIViewController {
+  var program:NhkProgram? = nil
+  
   override func viewDidLoad() {
     self.title = NhkApi.Method.Info(area: NhkApi.Area.defaultValue(), service: NhkApi.Service.defaultValue(), id: 0).name
   }

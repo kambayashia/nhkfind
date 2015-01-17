@@ -45,7 +45,7 @@ class ServiceTableViewController : UITableViewController {
       controller.service = selected
     }
     else if let controller = previous as? NowOnAirViewController {
-      
+      controller.service = selected
     }
   }
 }

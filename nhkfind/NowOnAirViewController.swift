@@ -67,13 +67,26 @@ class NowOnAirViewController : UIViewController, UITableViewDelegate, UITableVie
     searchButton.enabled = false
     
     let method = NhkApi.Method.NowOnAir(area: area, service: service)
-    nhkApi?.request(method, handler: {
-      (jsonDictionary:JsonDictionary) -> Void in
-      weak var wnhkApi:NhkApi? = self.nhkApi
-      self.searchButton.enabled = true
-      let url = wnhkApi!.makeUrl(method)
-      println(url)
-      self.performSegueWithIdentifier("ShowSearchResult", sender: nil)
+    nhkApi?.request(method,
+      success: {
+        (jsonDictionary:JsonDictionary) -> Void in
+        weak var wnhkApi:NhkApi? = self.nhkApi
+        
+        self.searchButton.enabled = true
+        
+        if let _jsonDictionary = jsonDictionary["nowonair_list"] as? JsonDictionary {
+          var programList:[NhkProgram] = []
+          for (serviceName, programListJson) in _jsonDictionary  {
+            if let jsonProgramList = programListJson as? JsonDictionary {
+              let nowOnAir = wnhkApi!.makeNowOnAirFromJson(jsonProgramList)
+            }
+          }
+          self.performSegueWithIdentifier("ShowSearchResult", sender: nil)
+        }
+      },
+      failure: {
+        () -> Void in
+        self.searchButton.enabled = true
       }
     )
   }
