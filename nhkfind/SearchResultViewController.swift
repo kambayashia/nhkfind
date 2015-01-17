@@ -35,6 +35,12 @@ class SearchResultViewController : UITableViewController {
     cell?.textLabel?.text = program.title
     cell?.detailTextLabel?.text = program.subTitle
     
+    if let imageUrl = program.service.logo_s.url {
+      cell?.imageView?.sd_setImageWithURL(
+        NSURL(string: imageUrl),
+        placeholderImage: nil
+      )
+    }
     return cell!
   }
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

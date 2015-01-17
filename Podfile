@@ -2,6 +2,7 @@
 # platform :ios, '6.0'
 
 target 'nhkfind' do
+  pod 'SDWebImage', '~> 3.7.1'
 end
 
 target 'nhkfindTests' do
