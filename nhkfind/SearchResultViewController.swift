@@ -22,6 +22,7 @@ class SearchResultViewController : UITableViewController {
   
     tableView.tableFooterView = UIView(frame: CGRectZero)
   }
+  
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if let controller = segue.destinationViewController as? ProgramInfoViewController {
       controller.program = programList[selected]
@@ -29,7 +30,6 @@ class SearchResultViewController : UITableViewController {
   }
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    //var cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier:cellIdentifier)
     let program = programList[indexPath.row]
     var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
     cell?.textLabel?.text = program.title
@@ -39,5 +39,11 @@ class SearchResultViewController : UITableViewController {
   }
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return programList.count
+  }
+  
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    selected = indexPath.row
+    
+    performSegueWithIdentifier("ShowProgramInfo", sender: nil)
   }
 }
