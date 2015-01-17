@@ -11,6 +11,62 @@ import Alamofire
 
 typealias JsonDictionary = Dictionary<String, AnyObject>
 
+struct NhkLogo {
+  let url:String?
+  let width:Int?
+  let height:Int?
+}
+
+struct NhkProgram {
+  struct Area {
+    let id:String
+    let name:String
+  }
+  
+  struct Service {
+    let id:String
+    let name:String
+    let logo_s:NhkLogo
+    let logo_m:NhkLogo
+    let logo_l:NhkLogo
+  }
+  let id:String
+  let eventId:String 
+  let startTime:NSDate
+  let endTime:NSDate
+  let title:String
+  let subTitle:String
+  let area:Area
+  let service:Service
+  let genres:[String]
+}
+
+struct NhkProgramDetail {
+  struct Link {
+    let url:String?
+    let id:String?
+    let title:String?
+  }
+
+  struct Extras {
+    let ondemandProgram:Link?
+    let ondemandEposode:Link?
+  }
+  
+  let program:NhkProgram
+  let logo:NhkLogo
+  let programUrl:String?
+  let episodeUrl:String?
+  let hashTags:[String]
+  let extras:Extras?
+}
+
+struct NhkNowOnAir {
+  let previous:NhkProgram?
+  let present:NhkProgram
+  let following:NhkProgram?
+}
+
 class NhkApi {
   let baseUrl = "http://api.nhk.or.jp"
   let key = ""
@@ -203,158 +259,158 @@ class NhkApi {
   }
   
   /// http://www.arib.or.jp/english/html/overview/doc/2-STD-B10v5_1.pdf
-  internal enum GenreType : UInt{
+  internal enum GenreType : String{
     static func defaultValue() -> GenreType {
       return GenreType.定時・総合
     }
     
-    case 定時・総合 = 0x0000
-    case 天気 = 0x0001
-    case 特集・ドキュメント = 0x0002
-    case 政治・国会 = 0x0003
-    case 経済・市況 = 0x0004
-    case 海外・国際 = 0x0005
-    case 解説 = 0x0006
-    case 討論・会談 = 0x0007
-    case 報道特番 = 0x0008
-    case ローカル・地域 = 0x0009
-    case 交通 = 0x000A
-    case ニュースその他 = 0x000F
+    case 定時・総合 = "0000"
+    case 天気 = "0001"
+    case 特集・ドキュメント = "0002"
+    case 政治・国会 = "0003"
+    case 経済・市況 = "0004"
+    case 海外・国際 = "0005"
+    case 解説 = "0006"
+    case 討論・会談 = "0007"
+    case 報道特番 = "0008"
+    case ローカル・地域 = "0009"
+    case 交通 = "0010"
+    case ニュースその他 = "0015"
     static var news:[GenreType] {
       return [定時・総合, 天気, 特集・ドキュメント, 政治・国会, 経済・市況, 海外・国際, 解説, 討論・会談, 報道特番, ローカル・地域, 交通, ニュースその他]
     }
     
-    case スポーツニュース = 0x0100
-    case 野球 = 0x0101
-    case サッカー = 0x0102
-    case ゴルフ = 0x0103
-    case その他の球技 = 0x0104
-    case 相撲・格闘技 = 0x0105
-    case オリンピック・国際大会 = 0x0106
-    case マラソン・陸上・水泳 = 0x0107
-    case モータースポーツ = 0x0108
-    case マリン・ウィンタースポーツ = 0x0109
-    case 競馬・公営競技 = 0x010A
-    case スポーツその他 = 0x010F
+    case スポーツニュース = "0100"
+    case 野球 = "0101"
+    case サッカー = "0102"
+    case ゴルフ = "0103"
+    case その他の球技 = "0104"
+    case 相撲・格闘技 = "0105"
+    case オリンピック・国際大会 = "0106"
+    case マラソン・陸上・水泳 = "0107"
+    case モータースポーツ = "0108"
+    case マリン・ウィンタースポーツ = "0109"
+    case 競馬・公営競技 = "0110"
+    case スポーツその他 = "0115"
     static var sport:[GenreType] {
       return [スポーツニュース, 野球, サッカー, ゴルフ, その他の球技, 相撲・格闘技, オリンピック・国際大会, マラソン・陸上・水泳, モータースポーツ, マリン・ウィンタースポーツ, 競馬・公営競技, スポーツその他,]
     }
     
-    case 芸能・ワイドショー = 0x0200
-    case ファッション = 0x0201
-    case 暮らし・住まい = 0x0202
-    case 健康・医療 = 0x0203
-    case ショッピング・通販 = 0x0204
-    case グルメ・料理 = 0x0205
-    case イベント = 0x0206
-    case 番組紹介・お知らせ = 0x0207
-    case 情報／ワイドショーその他 = 0x020F
+    case 芸能・ワイドショー = "0200"
+    case ファッション = "0201"
+    case 暮らし・住まい = "0202"
+    case 健康・医療 = "0203"
+    case ショッピング・通販 = "0204"
+    case グルメ・料理 = "0205"
+    case イベント = "0206"
+    case 番組紹介・お知らせ = "0207"
+    case 情報／ワイドショーその他 = "0215"
     static var entertainment:[GenreType] {
       return [芸能・ワイドショー, ファッション, 暮らし・住まい, 健康・医療, ショッピング・通販, グルメ・料理, イベント, 番組紹介・お知らせ, 情報／ワイドショーその他,]
     }
     
-    case 国内ドラマ = 0x0300
-    case 海外ドラマ = 0x0301
-    case 時代劇 = 0x0303
-    case ドラマその他 = 0x030F
+    case 国内ドラマ = "0300"
+    case 海外ドラマ = "0301"
+    case 時代劇 = "0303"
+    case ドラマその他 = "0315"
     static var drama:[GenreType] {
       return [国内ドラマ, 海外ドラマ, 時代劇, ドラマその他,]
     }
     
-    case 国内ロック・ポップス = 0x0400
-    case 海外ロック・ポップス = 0x0401
-    case クラシック・オペラ = 0x0402
-    case ジャズ・フュージョン = 0x0403
-    case 歌謡曲・演歌 = 0x0404
-    case ライブ・コンサート = 0x0405
-    case ランキング・リクエスト = 0x0406
-    case カラオケ・のど自慢 = 0x0407
-    case 民謡・邦楽 = 0x0408
-    case 童謡・キッズ = 0x0409
-    case 民族音楽・ワールドミュージック = 0x040A
-    case 音楽その他 = 0x040F
+    case 国内ロック・ポップス = "0400"
+    case 海外ロック・ポップス = "0401"
+    case クラシック・オペラ = "0402"
+    case ジャズ・フュージョン = "0403"
+    case 歌謡曲・演歌 = "0404"
+    case ライブ・コンサート = "0405"
+    case ランキング・リクエスト = "0406"
+    case カラオケ・のど自慢 = "0407"
+    case 民謡・邦楽 = "0408"
+    case 童謡・キッズ = "0409"
+    case 民族音楽・ワールドミュージック = "0410"
+    case 音楽その他 = "0415"
     static var music:[GenreType] {
       return [国内ロック・ポップス, 海外ロック・ポップス, クラシック・オペラ, ジャズ・フュージョン, 歌謡曲・演歌, ライブ・コンサート, ランキング・リクエスト, カラオケ・のど自慢, 民謡・邦楽, 童謡・キッズ, 民族音楽・ワールドミュージック, 音楽その他,]
     }
     
-    case クイズ = 0x0500
-    case ゲーム = 0x0501
-    case トークバラエティ = 0x0502
-    case お笑い・コメディ = 0x0503
-    case 音楽バラエティ = 0x0504
-    case 旅バラエティ = 0x0505
-    case 料理バラエティ = 0x0506
-    case バラエティその他 = 0x050F
+    case クイズ = "0500"
+    case ゲーム = "0501"
+    case トークバラエティ = "0502"
+    case お笑い・コメディ = "0503"
+    case 音楽バラエティ = "0504"
+    case 旅バラエティ = "0505"
+    case 料理バラエティ = "0506"
+    case バラエティその他 = "0515"
     static var variety:[GenreType] {
       return [クイズ, ゲーム, トークバラエティ, お笑い・コメディ, 音楽バラエティ, 旅バラエティ, 料理バラエティ, バラエティその他,]
     }
     
-    case 洋画 = 0x0600
-    case 邦画 = 0x0601
-    case アニメ映画 = 0x0602
-    case 映画その他 = 0x060F
+    case 洋画 = "0600"
+    case 邦画 = "0601"
+    case アニメ映画 = "0602"
+    case 映画その他 = "0615"
     static var movie:[GenreType] {
       return [洋画, 邦画, アニメ映画, 映画その他,]
     }
     
-    case 国内アニメ = 0x0700
-    case 海外アニメ = 0x0701
-    case 特撮 = 0x0702
-    case アニメその他 = 0x070F
+    case 国内アニメ = "0700"
+    case 海外アニメ = "0701"
+    case 特撮 = "0702"
+    case アニメその他 = "0715"
     static var anime:[GenreType] {
       return [国内アニメ, 海外アニメ, 特撮, アニメその他,]
     }
     
-    case 社会・時事 = 0x0800
-    case 歴史・紀行 = 0x0801
-    case 自然・動物・環境 = 0x0802
-    case 宇宙・科学・医学 = 0x0803
-    case カルチャー・伝統文化 = 0x0804
-    case 文学・文芸 = 0x0805
-    case スポーツドキュメンタリー = 0x0806
-    case ドキュメンタリー全般 = 0x0807
-    case インタビュー・討論 = 0x0808
-    case ドキュメンタリーその他 = 0x080F
+    case 社会・時事 = "0800"
+    case 歴史・紀行 = "0801"
+    case 自然・動物・環境 = "0802"
+    case 宇宙・科学・医学 = "0803"
+    case カルチャー・伝統文化 = "0804"
+    case 文学・文芸 = "0805"
+    case スポーツドキュメンタリー = "0806"
+    case ドキュメンタリー全般 = "0807"
+    case インタビュー・討論 = "0808"
+    case ドキュメンタリーその他 = "0815"
     static var documentary:[GenreType] {
       return [社会・時事, 歴史・紀行, 自然・動物・環境, 宇宙・科学・医学, カルチャー・伝統文化, 文学・文芸, スポーツドキュメンタリー, ドキュメンタリー全般, インタビュー・討論, ドキュメンタリーその他,]
     }
     
-    case 現代劇・新劇 = 0x0900
-    case ミュージカル = 0x0901
-    case ダンス・バレエ = 0x0902
-    case 落語・演芸 = 0x0903
-    case 歌舞伎・古典 = 0x0904
-    case 劇場公演その他 = 0x090F
+    case 現代劇・新劇 = "0900"
+    case ミュージカル = "0901"
+    case ダンス・バレエ = "0902"
+    case 落語・演芸 = "0903"
+    case 歌舞伎・古典 = "0904"
+    case 劇場公演その他 = "0915"
     static var musical:[GenreType] {
       return [現代劇・新劇, ミュージカル, ダンス・バレエ, 落語・演芸, 歌舞伎・古典, 劇場公演その他,]
     }
     
-    case 旅・釣り・アウトドア = 0x0A00
-    case 園芸・ペット・手芸 = 0x0A01
-    case 音楽・美術・工芸 = 0x0A02
-    case 囲碁・将棋 = 0x0A03
-    case 麻雀・パチンコ = 0x0A04
-    case 車・オートバイ = 0x0A05
-    case コンピュータ・ＴＶゲーム = 0x0A06
-    case 会話・語学 = 0x0A07
-    case 幼児・小学生 = 0x0A08
-    case 中学生・高校生 = 0x0A09
-    case 大学生・受験 = 0x0A0A
-    case 生涯教育・資格 = 0x0A0B
-    case 教育問題 = 0x0A0C
-    case 趣味・教育その他 = 0x0A0F
+    case 旅・釣り・アウトドア = "1000"
+    case 園芸・ペット・手芸 = "1001"
+    case 音楽・美術・工芸 = "1002"
+    case 囲碁・将棋 = "1003"
+    case 麻雀・パチンコ = "1004"
+    case 車・オートバイ = "1005"
+    case コンピュータ・ＴＶゲーム = "1006"
+    case 会話・語学 = "1007"
+    case 幼児・小学生 = "1008"
+    case 中学生・高校生 = "1009"
+    case 大学生・受験 = "1010"
+    case 生涯教育・資格 = "1011"
+    case 教育問題 = "1012"
+    case 趣味・教育その他 = "1015"
     static var hobby:[GenreType] {
       return [旅・釣り・アウトドア, 園芸・ペット・手芸, 音楽・美術・工芸, 囲碁・将棋, 麻雀・パチンコ, 車・オートバイ, コンピュータ・ＴＶゲーム, 会話・語学, 幼児・小学生, 中学生・高校生, 大学生・受験, 生涯教育・資格, 教育問題, 趣味・教育その他,]
     }
     
-    case 高齢者 = 0x0B00
-    case 障害者 = 0x0B01
-    case 社会福祉 = 0x0B02
-    case ボランティア = 0x0B03
-    case 手話 = 0x0B04
-    case 文字（字幕） = 0x0B05
-    case 音声解説 = 0x0B06
-    case 福祉その他 = 0x0B0F
+    case 高齢者 = "1100"
+    case 障害者 = "1101"
+    case 社会福祉 = "1102"
+    case ボランティア = "113"
+    case 手話 = "1104"
+    case 文字（字幕） = "1105"
+    case 音声解説 = "1106"
+    case 福祉その他 = "1115"
     static var humanService:[GenreType]{
       return [高齢者, 障害者, 社会福祉, ボランティア, 手話, 文字（字幕）, 音声解説, 福祉その他,]
     }
@@ -390,8 +446,7 @@ class NhkApi {
     }
 
     var code:String {
-      let code = NSString(format:"%04d", self.rawValue)
-      return code
+      return self.rawValue
     }
     
     var text:String {
@@ -539,36 +594,109 @@ class NhkApi {
     }
   }
   
-  func makeUrl(method:Method) -> String {
+  func makeUrl(method:Method, withoutKey:Bool) -> String {
     var result : String = ""
     
     let baseUrl = "\(self.baseUrl)/v\(self.version)/pg"
-    result = method.url(baseUrl) + "?key=\(self.key)";
+    if !withoutKey {
+      result = method.url(baseUrl) + "?key=\(self.key)";
+    }
+    else {
+      result = method.url(baseUrl) + "?key=YOUR KEY";
+    }
     
     return result
   }
   
-  func request(method:Method, handler:(json:JsonDictionary) -> Void) -> String {
-    let url = self.makeUrl(method)
+  func request(method:Method, success:(json:JsonDictionary) -> Void, failure:() -> Void) -> String {
+    let url = self.makeUrl(method, withoutKey: false)
     Alamofire.request(.GET, url).responseJSON(
       {(_, _, json, error) in
         var jsonDictionary:JsonDictionary = JsonDictionary()
         
-        if let jsonArray = json as? [JsonDictionary] {
-          for var i = 0; i < jsonArray.count; i++ {
-            let dict = jsonArray[i]
-            jsonDictionary[String(i)] = dict
-          }
+        if let jsonArray = json as? JsonDictionary {
+          success(json: jsonArray)
         }
-        else if let jsonArray = json as? JsonDictionary {
-          jsonDictionary = jsonArray
+        else {
+          failure()
         }
-
-        handler(json: jsonDictionary)
       }
     )
     
+    println(url)
     return url
+  }
+  
+  func makeProgramFromJson(json:JsonDictionary) -> NhkProgram {
+    let areaJson = json["area"] as JsonDictionary
+    let serviceJson = json["service"] as JsonDictionary
+    let logoSJson = serviceJson["logo_s"] as JsonDictionary
+    let logoMJson = serviceJson["logo_m"] as JsonDictionary
+    let logoLJson = serviceJson["logo_l"] as JsonDictionary
+
+    var formatter = NSDateFormatter()
+    
+    formatter.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+    formatter.timeZone = NSTimeZone(abbreviation: "UTC")
+    formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    
+    let logo_s = NhkLogo(url: logoSJson["url"]? as? String, width: logoSJson["width"]? as? Int, height: logoSJson["height"]? as? Int)
+    let logo_m = NhkLogo(url: logoMJson["url"]? as? String, width: logoMJson["width"]? as? Int, height: logoMJson["height"]? as? Int)
+    let logo_l = NhkLogo(url: logoLJson["url"]? as? String, width: logoLJson["width"]? as? Int, height: logoLJson["height"]? as? Int)
+    let result = NhkProgram(
+      id: json["id"]! as String,
+      eventId: json["event_id"]! as String,
+      startTime: formatter.dateFromString(json["start_time"]! as String)!,
+      endTime: formatter.dateFromString(json["end_time"]! as String)!,
+      title: json["title"]! as String,
+      subTitle: json["subtitle"]! as String,
+      area: NhkProgram.Area(id: areaJson["id"]! as String, name: areaJson["name"]! as String),
+      service: NhkProgram.Service(
+        id: serviceJson["id"]! as String,
+        name: serviceJson["name"]! as String,
+        logo_s: logo_s,
+        logo_m: logo_m,
+        logo_l: logo_l
+      ),
+      genres: json["genres"]! as [String]
+    )
+    
+    return result
+  }
+  
+  func makeProgramDetailFromJson(json:JsonDictionary) -> NhkProgramDetail {
+    let logoJson = json["program_logo"] as JsonDictionary
+    let program = makeProgramFromJson(json)
+    let logo = NhkLogo(url: logoJson["url"]? as? String, width: logoJson["width"]? as? Int, height: logoJson["height"]? as? Int)
+    let result = NhkProgramDetail(
+      program: program,
+      logo: logo,
+      programUrl: json["program_url"]? as? String,
+      episodeUrl: json["episode_url"]? as? String,
+      hashTags: json["hashtags"] as [String],
+      extras: nil
+    )
+    
+    return result
+  }
+  
+  func makeNowOnAirFromJson(json:JsonDictionary) -> NhkNowOnAir {
+    let presentJson = json["present"] as JsonDictionary
+    
+    var previous:NhkProgram? = nil
+    var following:NhkProgram? = nil
+    if let programJson = json["previous"] as? JsonDictionary {
+      previous = makeProgramFromJson(programJson)
+    }
+    if let programJson = json["following"] as? JsonDictionary {
+      following = makeProgramFromJson(programJson)
+    }
+    
+    return NhkNowOnAir(
+      previous: previous,
+      present: makeProgramFromJson(presentJson),
+      following: following
+    )
   }
   
   init(apiKey:String) {
