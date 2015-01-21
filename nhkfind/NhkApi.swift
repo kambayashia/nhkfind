@@ -72,7 +72,7 @@ class NhkApi {
   let key = ""
   let version = 1
   
-  internal enum Area : String{
+  enum Area : String{
     static func defaultValue() -> Area {
       return 東京
     }
@@ -171,7 +171,7 @@ class NhkApi {
     }
   }
   
-  internal enum Service : String{
+  enum Service : String{
     static func defaultValue() -> Service {
       return NHK総合1
     }
@@ -259,7 +259,7 @@ class NhkApi {
   }
   
   /// http://www.arib.or.jp/english/html/overview/doc/2-STD-B10v5_1.pdf
-  internal enum GenreType : String{
+  enum GenreType : String{
     static func defaultValue() -> GenreType {
       return GenreType.定時・総合
     }
