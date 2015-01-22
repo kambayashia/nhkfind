@@ -26,6 +26,7 @@
 		1C874FEE1A63B17000AA0B3E /* ServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FED1A63B17000AA0B3E /* ServiceTableViewController.swift */; };
 		1C874FF01A641D6300AA0B3E /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FEF1A641D6300AA0B3E /* SearchResultViewController.swift */; };
 		1CF748421A6AB68E009AA404 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF748411A6AB68E009AA404 /* ImageIO.framework */; };
+		1CF7484A1A712A79009AA404 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF748491A712A79009AA404 /* TestViewController.swift */; };
 		49AA069A6DDA02747C2522AD /* libPods-nhkfind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D175C5F395D370B0BAF2B17A /* libPods-nhkfind.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		1CA1EAE92A68525468D07736 /* Pods-nhkfind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nhkfind.release.xcconfig"; path = "Pods/Target Support Files/Pods-nhkfind/Pods-nhkfind.release.xcconfig"; sourceTree = "<group>"; };
 		1CF7483F1A6AB3F4009AA404 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		1CF748411A6AB68E009AA404 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		1CF748491A712A79009AA404 /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		45366D82AEC08C75101D7370 /* Pods-nhkfind.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nhkfind.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nhkfind/Pods-nhkfind.debug.xcconfig"; sourceTree = "<group>"; };
 		D175C5F395D370B0BAF2B17A /* libPods-nhkfind.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nhkfind.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -153,6 +155,7 @@
 				1C874FED1A63B17000AA0B3E /* ServiceTableViewController.swift */,
 				1C874FEF1A641D6300AA0B3E /* SearchResultViewController.swift */,
 				1CF7483F1A6AB3F4009AA404 /* Bridge-Header.h */,
+				1CF748491A712A79009AA404 /* TestViewController.swift */,
 			);
 			path = nhkfind;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				1C874FEC1A63A7EB00AA0B3E /* GenreTableViewController.swift in Sources */,
 				1C874FF01A641D6300AA0B3E /* SearchResultViewController.swift in Sources */,
 				1C009BC81A5ACCED00ADC420 /* AppDelegate.swift in Sources */,
+				1CF7484A1A712A79009AA404 /* TestViewController.swift in Sources */,
 				1C009BF21A5D8C5100ADC420 /* ProgramInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
