@@ -41,10 +41,14 @@ class ProgramInfoViewController : UIViewController {
     onAirPeriodLabel.text = dateFormatter.stringFromDate(program!.startTime) + "〜" + dateFormatter.stringFromDate(program!.endTime)
     descriptionView.text = program!.subTitle
     serviceImageView.contentMode = UIViewContentMode.ScaleAspectFit
-    serviceImageView.sd_setImageWithURL(NSURL(fileURLWithPath: program!.service.logo_l.url!), placeholderImage: Util.placeholderImage())
+    serviceImageView.sd_setImageWithURL(NSURL(string: program!.service.logo_l.url!), placeholderImage: Util.placeholderImage(),
+      completed: {SDWebImageCompletionBlock
+        in
+      }
+    )
     
     makeGenreLabel()
-    
+    makeHashTagLabel()
   }
   
   override func viewWillAppear(animated: Bool) {
@@ -87,7 +91,7 @@ class ProgramInfoViewController : UIViewController {
               self.makeHashTagLabel()
               let logo = self.detail?.logo?.url ?? self.detail?.program.service.logo_m.url
               self.programImageView.contentMode = UIViewContentMode.ScaleAspectFit
-              self.programImageView.sd_setImageWithURL(NSURL(fileURLWithPath: logo!), placeholderImage: Util.placeholderImage())
+              self.programImageView.sd_setImageWithURL(NSURL(string: logo!), placeholderImage: Util.placeholderImage())
             }
             break;
           }
@@ -100,7 +104,7 @@ class ProgramInfoViewController : UIViewController {
         () -> Void in
         indicatorView.stopAnimating();
         indicatorView.removeFromSuperview()
-    }
+      }
     )
   }
   
@@ -126,12 +130,11 @@ class ProgramInfoViewController : UIViewController {
   
   func makeHashTagLabel() {
     var text = ""
-    let count = detail!.hashTags.count
+    let count = detail?.hashTags.count ?? 0
     for var i = 0; i < count; i++ {
       let tag = detail!.hashTags[i]
       text += (tag ?? "") + "　"
     }
-    
     if text.isEmpty {
       hashTagLabel.text = "ハッシュタグはありません"
     }

@@ -497,7 +497,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="biA-YW-xdF">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="biA-YW-xdF">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uIR-Yf-8Vw">
@@ -508,7 +508,7 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZqP-Cd-wTw">
-                                        <rect key="frame" x="10" y="284" width="300" height="101"/>
+                                        <rect key="frame" x="10" y="294" width="300" height="101"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ジャンル" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TGB-Ay-tHr">
                                                 <rect key="frame" x="10" y="10" width="280" height="30"/>
@@ -536,7 +536,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jgj-x8-9LO">
-                                        <rect key="frame" x="10" y="395" width="300" height="81"/>
+                                        <rect key="frame" x="10" y="405" width="300" height="81"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ハッシュタグ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rG1-5j-FyQ">
                                                 <rect key="frame" x="10" y="10" width="280" height="30"/>
@@ -564,34 +564,34 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6h-iB-5AS">
-                                        <rect key="frame" x="10" y="110" width="300" height="164"/>
+                                        <rect key="frame" x="10" y="110" width="300" height="174"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="番組名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHZ-iE-T2B">
-                                                <rect key="frame" x="10" y="10" width="280" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="番組名" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHZ-iE-T2B">
+                                                <rect key="frame" x="10" y="10" width="280" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HH:MM ~ HH:MM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WeR-aq-xQW">
-                                                <rect key="frame" x="10" y="50" width="139" height="21"/>
+                                                <rect key="frame" x="10" y="44" width="139" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="地域" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xg-Y4-1CH">
-                                                <rect key="frame" x="159" y="50" width="34" height="21"/>
+                                                <rect key="frame" x="159" y="44" width="34" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jQO-45-Ohb">
-                                                <rect key="frame" x="203" y="50" width="32" height="24"/>
+                                                <rect key="frame" x="203" y="44" width="50" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="32" id="i3d-jm-SMk"/>
-                                                    <constraint firstAttribute="height" constant="24" id="wdU-l6-bXK"/>
+                                                    <constraint firstAttribute="width" constant="50" id="i3d-jm-SMk"/>
+                                                    <constraint firstAttribute="height" constant="40" id="wdU-l6-bXK"/>
                                                 </constraints>
                                             </imageView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="番組説明" translatesAutoresizingMaskIntoConstraints="NO" id="izP-I0-Xhb">
-                                                <rect key="frame" x="10" y="84" width="280" height="70"/>
+                                                <rect key="frame" x="10" y="94" width="280" height="70"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="URb-hb-ZdB"/>
@@ -649,10 +649,11 @@
                                     <constraint firstItem="c6h-iB-5AS" firstAttribute="leading" secondItem="biA-YW-xdF" secondAttribute="leading" constant="10" id="Wn5-rG-Iez"/>
                                     <constraint firstItem="ZqP-Cd-wTw" firstAttribute="top" secondItem="c6h-iB-5AS" secondAttribute="bottom" constant="10" id="X1h-dn-fwk"/>
                                     <constraint firstAttribute="trailing" secondItem="c6h-iB-5AS" secondAttribute="trailing" constant="10" id="XGW-GQ-gm0"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="568" id="d7s-jP-zQh"/>
                                     <constraint firstItem="Jgj-x8-9LO" firstAttribute="width" secondItem="c6h-iB-5AS" secondAttribute="width" id="f1L-eJ-Iq6"/>
                                     <constraint firstItem="ZqP-Cd-wTw" firstAttribute="top" secondItem="c6h-iB-5AS" secondAttribute="bottom" constant="10" id="h7A-ji-Psd"/>
                                     <constraint firstAttribute="centerX" secondItem="Jgj-x8-9LO" secondAttribute="centerX" id="kID-RN-eoh"/>
-                                    <constraint firstAttribute="height" constant="800" id="rLK-nr-ooF"/>
+                                    <constraint firstAttribute="height" constant="600" id="rLK-nr-ooF"/>
                                     <constraint firstItem="c6h-iB-5AS" firstAttribute="width" secondItem="ZqP-Cd-wTw" secondAttribute="width" id="vko-ww-EYQ"/>
                                     <constraint firstItem="uIR-Yf-8Vw" firstAttribute="top" secondItem="biA-YW-xdF" secondAttribute="top" id="zRQ-P8-3eL"/>
                                 </constraints>
@@ -660,6 +661,7 @@
                                     <mask key="constraints">
                                         <exclude reference="0jE-hu-SXT"/>
                                         <exclude reference="ELM-gM-Cq6"/>
+                                        <exclude reference="rLK-nr-ooF"/>
                                         <exclude reference="PnH-D8-Xca"/>
                                         <exclude reference="X1h-dn-fwk"/>
                                     </mask>
@@ -671,6 +673,7 @@
                             <constraint firstItem="biA-YW-xdF" firstAttribute="top" secondItem="W9M-g1-HmN" secondAttribute="top" id="84e-9f-Wal"/>
                             <constraint firstItem="biA-YW-xdF" firstAttribute="top" secondItem="W9M-g1-HmN" secondAttribute="top" id="Abv-3C-5Dv"/>
                             <constraint firstAttribute="bottom" secondItem="biA-YW-xdF" secondAttribute="bottom" id="H8u-mF-HxQ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="biA-YW-xdF" secondAttribute="bottom" id="L5q-aD-Dyq"/>
                             <constraint firstItem="biA-YW-xdF" firstAttribute="leading" secondItem="W9M-g1-HmN" secondAttribute="leading" id="RfS-tS-2Sk"/>
                             <constraint firstAttribute="width" secondItem="biA-YW-xdF" secondAttribute="width" id="Tiy-Cv-WFb"/>
                             <constraint firstAttribute="width" secondItem="biA-YW-xdF" secondAttribute="width" id="YGo-14-r4s"/>
@@ -683,6 +686,7 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="84e-9f-Wal"/>
+                                <exclude reference="H8u-mF-HxQ"/>
                                 <exclude reference="Tiy-Cv-WFb"/>
                                 <exclude reference="ZRx-Df-P0O"/>
                                 <exclude reference="oba-tl-m6p"/>
