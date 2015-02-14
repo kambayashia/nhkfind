@@ -54,7 +54,7 @@ struct NhkProgramDetail {
   }
   
   let program:NhkProgram
-  let logo:NhkLogo
+  let logo:NhkLogo?
   let programUrl:String?
   let episodeUrl:String?
   let hashTags:[String]
@@ -665,9 +665,11 @@ class NhkApi {
   }
   
   func makeProgramDetailFromJson(json:JsonDictionary) -> NhkProgramDetail {
-    let logoJson = json["program_logo"] as JsonDictionary
     let program = makeProgramFromJson(json)
-    let logo = NhkLogo(url: logoJson["url"]? as? String, width: logoJson["width"]? as? Int, height: logoJson["height"]? as? Int)
+    var logo:NhkLogo? = nil
+    if let logoJson = json["program_logo"] as? JsonDictionary {
+      logo = NhkLogo(url: logoJson["url"]? as? String, width: logoJson["width"]? as? Int, height: logoJson["height"]? as? Int)
+    }
     let result = NhkProgramDetail(
       program: program,
       logo: logo,

@@ -34,11 +34,11 @@ class SearchResultViewController : UITableViewController {
     var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
     cell?.textLabel?.text = program.title
     cell?.detailTextLabel?.text = program.subTitle
-    
+    cell?.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
     if let imageUrl = program.service.logo_s.url {
       cell?.imageView?.sd_setImageWithURL(
         NSURL(string: imageUrl),
-        placeholderImage: nil
+        placeholderImage: Util.placeholderImage()
       )
     }
     return cell!

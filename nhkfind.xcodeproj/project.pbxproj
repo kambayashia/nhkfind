@@ -19,6 +19,8 @@
 		1C009BF41A5D8C6400ADC420 /* NowOnAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C009BF31A5D8C6400ADC420 /* NowOnAirViewController.swift */; };
 		1C009BF61A5D91EB00ADC420 /* NhkApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C009BF51A5D91EB00ADC420 /* NhkApi.swift */; };
 		1C009BF81A60164400ADC420 /* NhkApiKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1C009BF71A60164400ADC420 /* NhkApiKey.txt */; };
+		1C719D521A8F75C500704DC4 /* nowloading.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C719D511A8F75C500704DC4 /* nowloading.png */; };
+		1C719D541A8F764800704DC4 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C719D531A8F764800704DC4 /* Util.swift */; };
 		1C874FE51A635D0F00AA0B3E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C009BC61A5ACCED00ADC420 /* Info.plist */; };
 		1C874FE61A635D8700AA0B3E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C874FE81A635D8700AA0B3E /* InfoPlist.strings */; };
 		1C874FEA1A635F6F00AA0B3E /* AreaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FE91A635F6F00AA0B3E /* AreaTableViewController.swift */; };
@@ -78,6 +80,8 @@
 		1C009BF51A5D91EB00ADC420 /* NhkApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NhkApi.swift; sourceTree = "<group>"; };
 		1C009BF71A60164400ADC420 /* NhkApiKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NhkApiKey.txt; sourceTree = "<group>"; };
 		1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		1C719D511A8F75C500704DC4 /* nowloading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nowloading.png; path = images/nowloading.png; sourceTree = "<group>"; };
+		1C719D531A8F764800704DC4 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		1C874FE11A635A6500AA0B3E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		1C874FE21A635A6500AA0B3E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1C874FE71A635D8700AA0B3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 		1C009BB91A5ACCED00ADC420 = {
 			isa = PBXGroup;
 			children = (
+				1C719D4F1A8F75AF00704DC4 /* images */,
 				1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */,
 				1C009BF71A60164400ADC420 /* NhkApiKey.txt */,
 				1C009BC41A5ACCED00ADC420 /* nhkfind */,
@@ -153,6 +158,7 @@
 				1C874FED1A63B17000AA0B3E /* ServiceTableViewController.swift */,
 				1C874FEF1A641D6300AA0B3E /* SearchResultViewController.swift */,
 				1CF7483F1A6AB3F4009AA404 /* Bridge-Header.h */,
+				1C719D531A8F764800704DC4 /* Util.swift */,
 			);
 			path = nhkfind;
 			sourceTree = "<group>";
@@ -190,6 +196,14 @@
 				1C009C011A60ABAB00ADC420 /* AlamofireTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1C719D4F1A8F75AF00704DC4 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				1C719D511A8F75C500704DC4 /* nowloading.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		72689519D5243A2B21B5E645 /* Pods */ = {
@@ -323,6 +337,7 @@
 				1C009BCF1A5ACCED00ADC420 /* Images.xcassets in Resources */,
 				1C009BF81A60164400ADC420 /* NhkApiKey.txt in Resources */,
 				1C874FE61A635D8700AA0B3E /* InfoPlist.strings in Resources */,
+				1C719D521A8F75C500704DC4 /* nowloading.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +395,7 @@
 				1C009BF41A5D8C6400ADC420 /* NowOnAirViewController.swift in Sources */,
 				1C009BEE1A5D800500ADC420 /* ProgramListViewController.swift in Sources */,
 				1C009BCA1A5ACCED00ADC420 /* ViewController.swift in Sources */,
+				1C719D541A8F764800704DC4 /* Util.swift in Sources */,
 				1C874FEC1A63A7EB00AA0B3E /* GenreTableViewController.swift in Sources */,
 				1C874FF01A641D6300AA0B3E /* SearchResultViewController.swift in Sources */,
 				1C009BC81A5ACCED00ADC420 /* AppDelegate.swift in Sources */,
