@@ -572,7 +572,7 @@ class NhkApi {
   internal enum Method {
     case List(area:Area,service:Service, date:String)
     case Genre(area:Area, service:Service, genre:GenreType, date:String)
-    case Info(area:Area, service:Service, id:Int)
+    case Info(area:Area, service:Service, id:String)
     case NowOnAir(area:Area, service:Service)
     
     func url(baseUrl:String) -> String {

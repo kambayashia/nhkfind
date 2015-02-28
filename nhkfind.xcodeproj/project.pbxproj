@@ -19,6 +19,10 @@
 		1C009BF41A5D8C6400ADC420 /* NowOnAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C009BF31A5D8C6400ADC420 /* NowOnAirViewController.swift */; };
 		1C009BF61A5D91EB00ADC420 /* NhkApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C009BF51A5D91EB00ADC420 /* NhkApi.swift */; };
 		1C009BF81A60164400ADC420 /* NhkApiKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1C009BF71A60164400ADC420 /* NhkApiKey.txt */; };
+		1C6A075E1A9F62D30013FBC2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C009BFF1A60ABAB00ADC420 /* Alamofire.framework */; };
+		1C6A07681A9F63570013FBC2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF748411A6AB68E009AA404 /* ImageIO.framework */; };
+		1C6A076B1A9F63990013FBC2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C009BFF1A60ABAB00ADC420 /* Alamofire.framework */; };
+		1C6A076C1A9F63990013FBC2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C009BFF1A60ABAB00ADC420 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C719D521A8F75C500704DC4 /* nowloading.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C719D511A8F75C500704DC4 /* nowloading.png */; };
 		1C719D541A8F764800704DC4 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C719D531A8F764800704DC4 /* Util.swift */; };
 		1C874FE51A635D0F00AA0B3E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C009BC61A5ACCED00ADC420 /* Info.plist */; };
@@ -27,7 +31,6 @@
 		1C874FEC1A63A7EB00AA0B3E /* GenreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FEB1A63A7EB00AA0B3E /* GenreTableViewController.swift */; };
 		1C874FEE1A63B17000AA0B3E /* ServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FED1A63B17000AA0B3E /* ServiceTableViewController.swift */; };
 		1C874FF01A641D6300AA0B3E /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FEF1A641D6300AA0B3E /* SearchResultViewController.swift */; };
-		1CF748421A6AB68E009AA404 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF748411A6AB68E009AA404 /* ImageIO.framework */; };
 		49AA069A6DDA02747C2522AD /* libPods-nhkfind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D175C5F395D370B0BAF2B17A /* libPods-nhkfind.a */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +56,14 @@
 			remoteGlobalIDString = F8111E3E19A95C8B0040E7D1;
 			remoteInfo = AlamofireTests;
 		};
-		1C009C021A60AC2E00ADC420 /* PBXContainerItemProxy */ = {
+		1C6A07651A9F633F0013FBC2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8111E3219A95C8B0040E7D1;
+			remoteInfo = Alamofire;
+		};
+		1C6A076D1A9F63990013FBC2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */;
 			proxyType = 1;
@@ -61,6 +71,20 @@
 			remoteInfo = Alamofire;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1C6A076F1A9F63990013FBC2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1C6A076C1A9F63990013FBC2 /* Alamofire.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1C009BC21A5ACCED00ADC420 /* nhkfind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nhkfind.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +104,8 @@
 		1C009BF51A5D91EB00ADC420 /* NhkApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NhkApi.swift; sourceTree = "<group>"; };
 		1C009BF71A60164400ADC420 /* NhkApiKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NhkApiKey.txt; sourceTree = "<group>"; };
 		1C009BF91A60ABAB00ADC420 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		1C6A075F1A9F62D90013FBC2 /* libPods-nhkfind-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-nhkfind-SDWebImage.a"; path = "Pods/build/Debug-iphoneos/libPods-nhkfind-SDWebImage.a"; sourceTree = "<group>"; };
+		1C6A07601A9F62D90013FBC2 /* libPods-nhkfind-UIActivityIndicator-for-SDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-nhkfind-UIActivityIndicator-for-SDWebImage.a"; path = "Pods/build/Debug-iphoneos/libPods-nhkfind-UIActivityIndicator-for-SDWebImage.a"; sourceTree = "<group>"; };
 		1C719D511A8F75C500704DC4 /* nowloading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = nowloading.png; path = images/nowloading.png; sourceTree = "<group>"; };
 		1C719D531A8F764800704DC4 /* Util.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
 		1C874FE11A635A6500AA0B3E /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
@@ -101,8 +127,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CF748421A6AB68E009AA404 /* ImageIO.framework in Frameworks */,
+				1C6A07681A9F63570013FBC2 /* ImageIO.framework in Frameworks */,
+				1C6A075E1A9F62D30013FBC2 /* Alamofire.framework in Frameworks */,
 				49AA069A6DDA02747C2522AD /* libPods-nhkfind.a in Frameworks */,
+				1C6A076B1A9F63990013FBC2 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,6 +246,8 @@
 		F6697201A94B4C563773043F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1C6A075F1A9F62D90013FBC2 /* libPods-nhkfind-SDWebImage.a */,
+				1C6A07601A9F62D90013FBC2 /* libPods-nhkfind-UIActivityIndicator-for-SDWebImage.a */,
 				1CF748411A6AB68E009AA404 /* ImageIO.framework */,
 				D175C5F395D370B0BAF2B17A /* libPods-nhkfind.a */,
 			);
@@ -236,11 +266,13 @@
 				1C009BBF1A5ACCED00ADC420 /* Frameworks */,
 				1C009BC01A5ACCED00ADC420 /* Resources */,
 				F4A7618A5A20B44217910BC4 /* Copy Pods Resources */,
+				1C6A076F1A9F63990013FBC2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1C009C031A60AC2E00ADC420 /* PBXTargetDependency */,
+				1C6A07661A9F633F0013FBC2 /* PBXTargetDependency */,
+				1C6A076E1A9F63990013FBC2 /* PBXTargetDependency */,
 			);
 			name = nhkfind;
 			productName = nhkfind;
@@ -419,10 +451,15 @@
 			target = 1C009BC11A5ACCED00ADC420 /* nhkfind */;
 			targetProxy = 1C009BD81A5ACCED00ADC420 /* PBXContainerItemProxy */;
 		};
-		1C009C031A60AC2E00ADC420 /* PBXTargetDependency */ = {
+		1C6A07661A9F633F0013FBC2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Alamofire;
-			targetProxy = 1C009C021A60AC2E00ADC420 /* PBXContainerItemProxy */;
+			targetProxy = 1C6A07651A9F633F0013FBC2 /* PBXContainerItemProxy */;
+		};
+		1C6A076E1A9F63990013FBC2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Alamofire;
+			targetProxy = 1C6A076D1A9F63990013FBC2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -541,8 +578,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: atsushi kambayashi (FTZK9ADKN9)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = nhkfind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "nhkfind/Bridge-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -555,8 +597,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: atsushi kambayashi (FTZK9ADKN9)";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = nhkfind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "nhkfind/Bridge-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -9,6 +9,21 @@
 import Foundation
 import UIKit
 
+class SearchResultTavleViewCell : UITableViewCell {
+  // for resize ImageView
+  override func layoutSubviews() {
+    super.layoutSubviews()
+
+    let size = self.frame.size
+    let newFrame = CGRectMake(0, 0, size.height, size.height)
+    self.imageView?.frame = newFrame
+    self.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+    
+    textLabel?.frame.origin.x = newFrame.width + 8
+    detailTextLabel?.frame.origin.x = newFrame.width + 8
+  }
+}
+
 class SearchResultViewController : UITableViewController {
   var area:NhkApi.Area? = nil
   var service:NhkApi.Service? = nil
@@ -32,9 +47,10 @@ class SearchResultViewController : UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let program = programList[indexPath.row]
     var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+
     cell?.textLabel?.text = program.title
-    cell?.detailTextLabel?.text = program.subTitle
-    cell?.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
+    cell?.detailTextLabel?.text = Util.formattedProgramPeriodWithDay(program)
+
     if let imageUrl = program.service.logo_s.url {
       cell?.imageView?.sd_setImageWithURL(
         NSURL(string: imageUrl),

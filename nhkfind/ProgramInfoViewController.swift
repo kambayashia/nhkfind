@@ -29,16 +29,14 @@ class ProgramInfoViewController : UIViewController {
   override func viewDidLoad() {
     loadDetailProgram()
     
-    self.title = NhkApi.Method.Info(area: NhkApi.Area.defaultValue(), service: NhkApi.Service.defaultValue(), id: 0).name
+    self.title = NhkApi.Method.Info(area: NhkApi.Area.defaultValue(), service: NhkApi.Service.defaultValue(), id: "0").name
 
     let beforeContentSize = scrollView.contentSize
     let beforeViewSize = contentView.bounds.size
     
     nameLabel.text = program!.title
     areaLabel.text = program!.area.name
-    var dateFormatter = NSDateFormatter()
-    dateFormatter.dateFormat = "HH:mm"
-    onAirPeriodLabel.text = dateFormatter.stringFromDate(program!.startTime) + "〜" + dateFormatter.stringFromDate(program!.endTime)
+    onAirPeriodLabel.text = Util.formattedProgramPeriod(program!)
     descriptionView.text = program!.subTitle
     serviceImageView.contentMode = UIViewContentMode.ScaleAspectFit
     serviceImageView.sd_setImageWithURL(NSURL(string: program!.service.logo_l.url!), placeholderImage: Util.placeholderImage(),
@@ -80,7 +78,9 @@ class ProgramInfoViewController : UIViewController {
     indicatorView.startAnimating();
     self.view.addSubview(indicatorView)
     
-    nhkApi?.request(NhkApi.Method.Info(area: NhkApi.Area(rawValue: program!.area.id)!, service: NhkApi.Service(rawValue: program!.service.id)!, id: program!.id.toInt()!),
+    let area = NhkApi.Area(rawValue: program!.area.id)!
+    let service = NhkApi.Service(rawValue: program!.service.id)!
+    nhkApi?.request(NhkApi.Method.Info(area: area, service: service, id: program!.id),
       success: {
         (response:JsonDictionary) -> Void in
         weak var wnhkApi = nhkApi
