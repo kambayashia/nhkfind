@@ -3,6 +3,7 @@
 
 target 'nhkfind' do
   pod 'SDWebImage', '~> 3.7.1'
+  #pod 'UIActivityIndicator-for-SDWebImage'
 end
 
 target 'nhkfindTests' do
