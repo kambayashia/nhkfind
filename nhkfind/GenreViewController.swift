@@ -124,6 +124,7 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
     let method = NhkApi.Method.Genre(area: area, service: service, genre: genre, date: selectedDate)
     nhkApi?.request(method,
       success: {
+        [unowned self]
         (jsonDictionary:JsonDictionary) -> Void in
         weak var wnhkApi:NhkApi? = self.nhkApi
       
@@ -144,6 +145,7 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
         }
       },
       failure: {
+        [unowned self]
         () -> Void in
         self.searchButton.enabled = true
       }
