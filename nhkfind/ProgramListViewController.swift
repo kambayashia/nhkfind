@@ -79,6 +79,7 @@ class ProgramListViewController: UIViewController, UITableViewDelegate, UITableV
     let method = NhkApi.Method.List(area: area, service: service, date: date)
     nhkApi?.request(method,
       success: {
+        [unowned self]
         (jsonDictionary:JsonDictionary) -> Void in
         weak var wnhkApi:NhkApi? = self.nhkApi
         
@@ -99,6 +100,7 @@ class ProgramListViewController: UIViewController, UITableViewDelegate, UITableV
         }
       },
       failure: {
+        [unowned self]
         () -> Void in
         self.searchButton.enabled = true
       }

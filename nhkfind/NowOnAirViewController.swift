@@ -17,6 +17,7 @@ class NowOnAirViewController : UIViewController, UITableViewDelegate, UITableVie
   var area = NhkApi.Area.defaultValue()
   var service = NhkApi.Service.defaultValue()
   var nhkApi:NhkApi? = nil
+  var nowOnAirList:[NhkNowOnAir] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -59,7 +60,23 @@ class NowOnAirViewController : UIViewController, UITableViewDelegate, UITableVie
       controller.previous = self
     }
     else if let controller = segue.destinationViewController as? SearchResultViewController {
+      var programList:[NhkProgram] = []
+      for item in self.nowOnAirList {
+        if let program = item.previous {
+          programList.append(program)
+        }
+        /*
+        if let progmam = item.present {
+          programList.append(program)
+        }
+        */
+        programList.append(item.present)
+        if let program = item.following {
+          programList.append(program)
+        }
+      }
       
+      controller.programList = programList
     }
   }
   
@@ -69,6 +86,7 @@ class NowOnAirViewController : UIViewController, UITableViewDelegate, UITableVie
     let method = NhkApi.Method.NowOnAir(area: area, service: service)
     nhkApi?.request(method,
       success: {
+        [unowned self]
         (jsonDictionary:JsonDictionary) -> Void in
         weak var wnhkApi:NhkApi? = self.nhkApi
         
@@ -79,12 +97,14 @@ class NowOnAirViewController : UIViewController, UITableViewDelegate, UITableVie
           for (serviceName, programListJson) in _jsonDictionary  {
             if let jsonProgramList = programListJson as? JsonDictionary {
               let nowOnAir = wnhkApi!.makeNowOnAirFromJson(jsonProgramList)
+              self.nowOnAirList.append(nowOnAir)
             }
           }
           self.performSegueWithIdentifier("ShowSearchResult", sender: nil)
         }
       },
       failure: {
+        [unowned self]
         () -> Void in
         self.searchButton.enabled = true
       }
