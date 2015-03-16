@@ -50,7 +50,7 @@ class AreaTableViewContorller : UITableViewController {
       controller.area = selected
     }
     else if let controller = previous as? NowOnAirViewController {
-      
+      controller.area = selected
     }
   }
 }
