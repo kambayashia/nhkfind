@@ -9,19 +9,11 @@
 import Foundation
 import UIKit
 
-class SearchResultTavleViewCell : UITableViewCell {
-  // for resize ImageView
-  override func layoutSubviews() {
-    super.layoutSubviews()
-
-    let size = self.frame.size
-    let newFrame = CGRectMake(0, 0, size.height, size.height)
-    self.imageView?.frame = newFrame
-    self.imageView?.contentMode = UIViewContentMode.ScaleAspectFit
-    
-    textLabel?.frame.origin.x = newFrame.width + 8
-    detailTextLabel?.frame.origin.x = newFrame.width + 8
-  }
+class SearchResultTableViewCell : UITableViewCell {
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var channelLabel: UILabel!
+  @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var logoImageView: UIImageView!
 }
 
 class SearchResultViewController : UITableViewController {
@@ -53,13 +45,13 @@ class SearchResultViewController : UITableViewController {
   
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let program = programList[indexPath.row]
-    var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? UITableViewCell
+    var cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier) as? SearchResultTableViewCell
 
-    cell?.textLabel?.text = program.title
-    cell?.detailTextLabel?.text = Util.formattedProgramPeriodWithDay(program)
-
+    cell?.titleLabel.text = program.title
+    cell?.channelLabel.text = program.service.name
+    cell?.dateLabel.text = Util.formattedProgramPeriodWithDay(program)
     if let imageUrl = program.service.logo_s.url {
-      cell?.imageView?.sd_setImageWithURL(
+      cell?.logoImageView.sd_setImageWithURL(
         NSURL(string: imageUrl),
         placeholderImage: Util.placeholderImage()
       )
