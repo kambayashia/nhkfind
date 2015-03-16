@@ -28,7 +28,7 @@ class NowOnAirViewController : UIViewController, UITableViewDelegate, UITableVie
       nhkApi = NhkApi(apiKey: String(keyData!))
     }
     
-    self.title = NhkApi.Method.NowOnAir(area: area, service: service).name
+    self.title = "放送中"
     
     areaTableView.delegate = self
     areaTableView.dataSource = self

@@ -13,6 +13,12 @@ class AreaTableViewContorller : UITableViewController {
   var current:NhkApi.Area? = nil
   var previous:UIViewController? = nil
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.title = "地域選択"
+  }
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     

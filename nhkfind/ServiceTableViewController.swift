@@ -13,6 +13,12 @@ class ServiceTableViewController : UITableViewController {
   var previous:UIViewController? = nil
   var current:NhkApi.Service? = nil
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.title = "サービス選択"
+  }
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     

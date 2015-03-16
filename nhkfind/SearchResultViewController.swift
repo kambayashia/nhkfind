@@ -32,6 +32,13 @@ class SearchResultViewController : UITableViewController {
   var selected:Int = 0
   let cellIdentifier = "CellIdentifier"
 
+  override func viewDidLoad() {
+      super.viewDidLoad()
+    
+      self.title = "検索結果"
+  }
+  
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
   
