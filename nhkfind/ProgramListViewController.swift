@@ -35,7 +35,7 @@ class ProgramListViewController: UIViewController, UITableViewDelegate, UITableV
     dateSegmentedControl.setTitle(availableDate.0, forSegmentAtIndex: 0)
     dateSegmentedControl.setTitle(availableDate.1, forSegmentAtIndex: 1)
     
-    self.title = NhkApi.Method.List(area: NhkApi.Area.defaultValue(), service: NhkApi.Service.defaultValue(), date: "").name
+    self.title = "チャンネル"
 
     areaTableView.delegate = self
     areaTableView.dataSource = self

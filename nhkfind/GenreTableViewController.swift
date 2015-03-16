@@ -13,6 +13,12 @@ class GenreTableViewController : UITableViewController {
   var previous:UIViewController? = nil
   var current:NhkApi.GenreType? = nil
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    self.title = "ジャンル選択"
+  }
+  
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     

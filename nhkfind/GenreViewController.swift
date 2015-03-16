@@ -36,7 +36,7 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
     dateSegmentedControl.setTitle(availableDate.0, forSegmentAtIndex: 0)
     dateSegmentedControl.setTitle(availableDate.1, forSegmentAtIndex: 1)
     
-    self.title = NhkApi.Method.Genre(area: NhkApi.Area.defaultValue(), service: NhkApi.Service.defaultValue(), genre: NhkApi.GenreType.defaultValue(), date: "").name
+    self.title = "ジャンル"
     
     areaTableView.delegate = self
     areaTableView.dataSource = self
