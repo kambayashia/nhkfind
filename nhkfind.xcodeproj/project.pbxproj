@@ -30,17 +30,15 @@
 		1C20E5521AB4903A00506A95 /* tab_icon_program@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C20E5491AB4903A00506A95 /* tab_icon_program@3x.png */; };
 		1C6A075E1A9F62D30013FBC2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C009BFF1A60ABAB00ADC420 /* Alamofire.framework */; };
 		1C6A07681A9F63570013FBC2 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF748411A6AB68E009AA404 /* ImageIO.framework */; };
-		1C6A076B1A9F63990013FBC2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C009BFF1A60ABAB00ADC420 /* Alamofire.framework */; };
 		1C6A076C1A9F63990013FBC2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1C009BFF1A60ABAB00ADC420 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1C719D521A8F75C500704DC4 /* nowloading.png in Resources */ = {isa = PBXBuildFile; fileRef = 1C719D511A8F75C500704DC4 /* nowloading.png */; };
 		1C719D541A8F764800704DC4 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C719D531A8F764800704DC4 /* Util.swift */; };
-		1C874FE51A635D0F00AA0B3E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1C009BC61A5ACCED00ADC420 /* Info.plist */; };
 		1C874FE61A635D8700AA0B3E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1C874FE81A635D8700AA0B3E /* InfoPlist.strings */; };
 		1C874FEA1A635F6F00AA0B3E /* AreaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FE91A635F6F00AA0B3E /* AreaTableViewController.swift */; };
 		1C874FEC1A63A7EB00AA0B3E /* GenreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FEB1A63A7EB00AA0B3E /* GenreTableViewController.swift */; };
 		1C874FEE1A63B17000AA0B3E /* ServiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FED1A63B17000AA0B3E /* ServiceTableViewController.swift */; };
 		1C874FF01A641D6300AA0B3E /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C874FEF1A641D6300AA0B3E /* SearchResultViewController.swift */; };
-		49AA069A6DDA02747C2522AD /* libPods-nhkfind.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D175C5F395D370B0BAF2B17A /* libPods-nhkfind.a */; };
+		AEBAEDE3BCE28864F2E19ADC /* Pods_nhkfind.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B10A4FB4B11228660665B5F /* Pods_nhkfind.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,8 +134,8 @@
 		1CA1EAE92A68525468D07736 /* Pods-nhkfind.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nhkfind.release.xcconfig"; path = "Pods/Target Support Files/Pods-nhkfind/Pods-nhkfind.release.xcconfig"; sourceTree = "<group>"; };
 		1CF7483F1A6AB3F4009AA404 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
 		1CF748411A6AB68E009AA404 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		3B10A4FB4B11228660665B5F /* Pods_nhkfind.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nhkfind.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45366D82AEC08C75101D7370 /* Pods-nhkfind.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nhkfind.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nhkfind/Pods-nhkfind.debug.xcconfig"; sourceTree = "<group>"; };
-		D175C5F395D370B0BAF2B17A /* libPods-nhkfind.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-nhkfind.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +145,7 @@
 			files = (
 				1C6A07681A9F63570013FBC2 /* ImageIO.framework in Frameworks */,
 				1C6A075E1A9F62D30013FBC2 /* Alamofire.framework in Frameworks */,
-				49AA069A6DDA02747C2522AD /* libPods-nhkfind.a in Frameworks */,
-				1C6A076B1A9F63990013FBC2 /* Alamofire.framework in Frameworks */,
+				AEBAEDE3BCE28864F2E19ADC /* Pods_nhkfind.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +273,7 @@
 				1C6A075F1A9F62D90013FBC2 /* libPods-nhkfind-SDWebImage.a */,
 				1C6A07601A9F62D90013FBC2 /* libPods-nhkfind-UIActivityIndicator-for-SDWebImage.a */,
 				1CF748411A6AB68E009AA404 /* ImageIO.framework */,
-				D175C5F395D370B0BAF2B17A /* libPods-nhkfind.a */,
+				3B10A4FB4B11228660665B5F /* Pods_nhkfind.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -294,6 +291,7 @@
 				1C009BC01A5ACCED00ADC420 /* Resources */,
 				F4A7618A5A20B44217910BC4 /* Copy Pods Resources */,
 				1C6A076F1A9F63990013FBC2 /* Embed Frameworks */,
+				2F0984B94FF67594E3D7AA40 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -330,7 +328,7 @@
 		1C009BBA1A5ACCED00ADC420 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = atsushi.kambayashi;
 				TargetAttributes = {
 					1C009BC11A5ACCED00ADC420 = {
@@ -396,7 +394,6 @@
 				1C20E54B1AB4903A00506A95 /* tab_icon_genre@2x.png in Resources */,
 				1C20E54C1AB4903A00506A95 /* tab_icon_genre@3x.png in Resources */,
 				1C009BD21A5ACCED00ADC420 /* LaunchScreen.xib in Resources */,
-				1C874FE51A635D0F00AA0B3E /* Info.plist in Resources */,
 				1C20E5501AB4903A00506A95 /* tab_icon_program.png in Resources */,
 				1C009BCF1A5ACCED00ADC420 /* Images.xcassets in Resources */,
 				1C20E54A1AB4903A00506A95 /* tab_icon_genre.png in Resources */,
@@ -419,6 +416,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2F0984B94FF67594E3D7AA40 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nhkfind/Pods-nhkfind-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		42864595293EBB6302374E45 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,6 +543,7 @@
 /* Begin XCBuildConfiguration section */
 		1C009BDF1A5ACCED00ADC420 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45366D82AEC08C75101D7370 /* Pods-nhkfind.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -574,6 +587,7 @@
 		};
 		1C009BE01A5ACCED00ADC420 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CA1EAE92A68525468D07736 /* Pods-nhkfind.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -615,6 +629,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: atsushi kambayashi (FTZK9ADKN9)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					Pods/SDWebImage/SDWebImage,
+				);
 				INFOPLIST_FILE = nhkfind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -634,6 +653,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: atsushi kambayashi (FTZK9ADKN9)";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					Pods/SDWebImage/SDWebImage,
+				);
 				INFOPLIST_FILE = nhkfind/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

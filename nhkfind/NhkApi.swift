@@ -69,7 +69,7 @@ struct NhkNowOnAir {
 
 class NhkApi {
   let baseUrl = "http://api.nhk.or.jp"
-  let key = ""
+  let key:String
   let version = 1
   
   enum Area : String{
@@ -611,7 +611,7 @@ class NhkApi {
   func request(method:Method, success:(json:JsonDictionary) -> Void, failure:() -> Void) -> String {
     let url = self.makeUrl(method, withoutKey: false)
     Alamofire.request(.GET, url).responseJSON(
-      {(_, _, json, error) in
+      completionHandler: {(_, _, json, error) in
         var jsonDictionary:JsonDictionary = JsonDictionary()
         
         if let jsonArray = json as? JsonDictionary {
@@ -628,11 +628,11 @@ class NhkApi {
   }
   
   func makeProgramFromJson(json:JsonDictionary) -> NhkProgram {
-    let areaJson = json["area"] as JsonDictionary
-    let serviceJson = json["service"] as JsonDictionary
-    let logoSJson = serviceJson["logo_s"] as JsonDictionary
-    let logoMJson = serviceJson["logo_m"] as JsonDictionary
-    let logoLJson = serviceJson["logo_l"] as JsonDictionary
+    let areaJson = json["area"] as! JsonDictionary
+    let serviceJson = json["service"] as! JsonDictionary
+    let logoSJson = serviceJson["logo_s"] as! JsonDictionary
+    let logoMJson = serviceJson["logo_m"] as! JsonDictionary
+    let logoLJson = serviceJson["logo_l"] as! JsonDictionary
 
     var formatter = NSDateFormatter()
     
@@ -640,25 +640,25 @@ class NhkApi {
     formatter.timeZone = NSTimeZone(abbreviation: "UTC")
     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
     
-    let logo_s = NhkLogo(url: logoSJson["url"]? as? String, width: logoSJson["width"]? as? Int, height: logoSJson["height"]? as? Int)
-    let logo_m = NhkLogo(url: logoMJson["url"]? as? String, width: logoMJson["width"]? as? Int, height: logoMJson["height"]? as? Int)
-    let logo_l = NhkLogo(url: logoLJson["url"]? as? String, width: logoLJson["width"]? as? Int, height: logoLJson["height"]? as? Int)
+    let logo_s = NhkLogo(url: logoSJson["url"] as? String, width: logoSJson["width"] as? Int, height: logoSJson["height"] as? Int)
+    let logo_m = NhkLogo(url: logoMJson["url"] as? String, width: logoMJson["width"] as? Int, height: logoMJson["height"] as? Int)
+    let logo_l = NhkLogo(url: logoLJson["url"] as? String, width: logoLJson["width"] as? Int, height: logoLJson["height"] as? Int)
     let result = NhkProgram(
-      id: json["id"]! as String,
-      eventId: json["event_id"]! as String,
-      startTime: formatter.dateFromString(json["start_time"]! as String)!,
-      endTime: formatter.dateFromString(json["end_time"]! as String)!,
-      title: json["title"]! as String,
-      subTitle: json["subtitle"]! as String,
-      area: NhkProgram.Area(id: areaJson["id"]! as String, name: areaJson["name"]! as String),
+      id: json["id"] as! String,
+      eventId: json["event_id"] as! String,
+      startTime: formatter.dateFromString(json["start_time"] as! String)!,
+      endTime: formatter.dateFromString(json["end_time"] as! String)!,
+      title: json["title"] as! String,
+      subTitle: json["subtitle"] as! String,
+      area: NhkProgram.Area(id: areaJson["id"] as! String, name: areaJson["name"] as! String),
       service: NhkProgram.Service(
-        id: serviceJson["id"]! as String,
-        name: serviceJson["name"]! as String,
+        id: serviceJson["id"] as! String,
+        name: serviceJson["name"] as! String,
         logo_s: logo_s,
         logo_m: logo_m,
         logo_l: logo_l
       ),
-      genres: json["genres"]! as [String]
+      genres: json["genres"] as! [String]
     )
     
     return result
@@ -668,14 +668,14 @@ class NhkApi {
     let program = makeProgramFromJson(json)
     var logo:NhkLogo? = nil
     if let logoJson = json["program_logo"] as? JsonDictionary {
-      logo = NhkLogo(url: logoJson["url"]? as? String, width: logoJson["width"]? as? Int, height: logoJson["height"]? as? Int)
+      logo = NhkLogo(url: logoJson["url"] as? String, width: logoJson["width"] as? Int, height: logoJson["height"] as? Int)
     }
     let result = NhkProgramDetail(
       program: program,
       logo: logo,
-      programUrl: json["program_url"]? as? String,
-      episodeUrl: json["episode_url"]? as? String,
-      hashTags: json["hashtags"] as [String],
+      programUrl: json["program_url"] as? String,
+      episodeUrl: json["episode_url"] as? String,
+      hashTags: json["hashtags"] as! [String],
       extras: nil
     )
     
@@ -683,7 +683,7 @@ class NhkApi {
   }
   
   func makeNowOnAirFromJson(json:JsonDictionary) -> NhkNowOnAir {
-    let presentJson = json["present"] as JsonDictionary
+    let presentJson = json["present"] as! JsonDictionary
     
     var previous:NhkProgram? = nil
     var following:NhkProgram? = nil
@@ -702,7 +702,7 @@ class NhkApi {
   }
   
   init(apiKey:String) {
-    self.key = apiKey
+    key = apiKey
   }
   
   class var availableDate:(String, String) {
